@@ -2,23 +2,44 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://clifford.ressel.fyi/blog</id>
     <title>Clifford Ressel Blog</title>
-    <updated>2023-11-26T00:00:00.000Z</updated>
+    <updated>2023-05-28T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://clifford.ressel.fyi/blog"/>
     <subtitle>Clifford Ressel Blog</subtitle>
     <entry>
-        <title type="html"><![CDATA[First Blog Post]]></title>
-        <id>https://clifford.ressel.fyi/blog/first-blog-post</id>
-        <link href="https://clifford.ressel.fyi/blog/first-blog-post"/>
-        <updated>2023-11-26T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet]]></summary>
-        <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content>
+        <title type="html"><![CDATA[10 minute moments]]></title>
+        <id>https://clifford.ressel.fyi/blog/many-minutes-few-moments</id>
+        <link href="https://clifford.ressel.fyi/blog/many-minutes-few-moments"/>
+        <updated>2023-05-28T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[16 waking hours ÷ 10 minutes = 96]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>16 waking hours ÷ 10 minutes = 96</p>
+<p>10 minutes is ~1% of your day.</p>
+</blockquote>
+<p>- <a href="https://taylor.town/10-minutes" target="_blank" rel="noopener noreferrer">by Taylor Troesh</a></p>
+<p>When the phone scrolling lasts for 10 minutes, or low-priority yak shaving tasks draw your attention for 10 minutes, that's one percent of your day spent.
+That's not necessarily a bad thing or a good thing, but make sure it's a thing you want to spend one percent of your day on.</p>
+<p>You only have this many of those 10 minute moments.</p>
+<pre style="width:min-content"><p>🥱  📱  🍳  🥐  📱  ☕
+🪥  🧥  💻  💻  💻  🚽
+💬  📧  🎧  💻  📞  💻
+💻  💻  💻  💻  ☕  💻
+📞  💻  📱  🎧  💻  💻
+💬  💻  📱  🍱  🍱  📱
+☕  💻  📞  💻  💻  🎧
+🚽  📱  💻  💻  📧  📞
+📞  💻  💻  📱  🥪  💻
+💻  💬  💬  📱  💻  🚗
+🛒  🛒  🚗  🥏  🥏  🏃
+🏃  🥏  🥏  🥏  🏋️  🏋️
+🏋️  🏋️  🧘  🧘  🚗  🚗
+🛁  🍲  🍲  📺  📺  📱
+📱  📺  🚽  💻  💻  💻
+🪥  📖  📖  📖  📖  🛌</p></pre>
+<p>Many minutes, but few moments.</p>]]></content>
         <author>
             <name>Clifford</name>
             <uri>https://github.com/CSRessel</uri>
         </author>
-        <category label="first" term="first"/>
-        <category label="hello" term="hello"/>
-        <category label="world" term="world"/>
     </entry>
 </feed>

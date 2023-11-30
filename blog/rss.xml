@@ -4,20 +4,41 @@
         <title>Clifford Ressel Blog</title>
         <link>https://clifford.ressel.fyi/blog</link>
         <description>Clifford Ressel Blog</description>
-        <lastBuildDate>Sun, 26 Nov 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 28 May 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <item>
-            <title><![CDATA[First Blog Post]]></title>
-            <link>https://clifford.ressel.fyi/blog/first-blog-post</link>
-            <guid>https://clifford.ressel.fyi/blog/first-blog-post</guid>
-            <pubDate>Sun, 26 Nov 2023 00:00:00 GMT</pubDate>
-            <description><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet]]></description>
-            <content:encoded><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content:encoded>
-            <category>first</category>
-            <category>hello</category>
-            <category>world</category>
+            <title><![CDATA[10 minute moments]]></title>
+            <link>https://clifford.ressel.fyi/blog/many-minutes-few-moments</link>
+            <guid>https://clifford.ressel.fyi/blog/many-minutes-few-moments</guid>
+            <pubDate>Sun, 28 May 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[16 waking hours ÷ 10 minutes = 96]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<p>16 waking hours ÷ 10 minutes = 96</p>
+<p>10 minutes is ~1% of your day.</p>
+</blockquote>
+<p>- <a href="https://taylor.town/10-minutes" target="_blank" rel="noopener noreferrer">by Taylor Troesh</a></p>
+<p>When the phone scrolling lasts for 10 minutes, or low-priority yak shaving tasks draw your attention for 10 minutes, that's one percent of your day spent.
+That's not necessarily a bad thing or a good thing, but make sure it's a thing you want to spend one percent of your day on.</p>
+<p>You only have this many of those 10 minute moments.</p>
+<pre style="width:min-content"><p>🥱  📱  🍳  🥐  📱  ☕
+🪥  🧥  💻  💻  💻  🚽
+💬  📧  🎧  💻  📞  💻
+💻  💻  💻  💻  ☕  💻
+📞  💻  📱  🎧  💻  💻
+💬  💻  📱  🍱  🍱  📱
+☕  💻  📞  💻  💻  🎧
+🚽  📱  💻  💻  📧  📞
+📞  💻  💻  📱  🥪  💻
+💻  💬  💬  📱  💻  🚗
+🛒  🛒  🚗  🥏  🥏  🏃
+🏃  🥏  🥏  🥏  🏋️  🏋️
+🏋️  🏋️  🧘  🧘  🚗  🚗
+🛁  🍲  🍲  📺  📺  📱
+📱  📺  🚽  💻  💻  💻
+🪥  📖  📖  📖  📖  🛌</p></pre>
+<p>Many minutes, but few moments.</p>]]></content:encoded>
         </item>
     </channel>
 </rss>
