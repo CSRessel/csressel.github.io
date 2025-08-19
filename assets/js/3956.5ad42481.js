@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpersonalpage=self.webpackChunkpersonalpage||[]).push([[3956],{3956:(e,a,s)=>{s.d(a,{createRadarServices:()=>p.f});var p=s(2852);s(5817)}}]);
