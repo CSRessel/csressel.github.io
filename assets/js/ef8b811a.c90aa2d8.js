@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpersonalpage=self.webpackChunkpersonalpage||[]).push([[8947],{6600:e=>{e.exports=JSON.parse('{"authors":[{"name":"Clifford","url":"https://github.com/CSRessel","imageURL":"/img/csressel-xs.webp","key":"csressel","page":null,"count":9}]}')}}]);
