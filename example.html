@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Redesign Variations | Clifford Ressel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       GLOBAL STYLES & NAVIGATION
+       ======================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .design-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 12px 20px;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    [data-theme="light"] .design-nav {
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .design-nav h1 {
+      font-size: 14px;
+      font-weight: 500;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 6px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 13px;
+      color: #fff;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+
+    [data-theme="light"] .theme-toggle {
+      background: rgba(0, 0, 0, 0.05);
+      border-color: rgba(0, 0, 0, 0.2);
+      color: #333;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    [data-theme="light"] .theme-toggle:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .theme-toggle .icon-sun,
+    .theme-toggle .icon-moon {
+      width: 16px;
+      height: 16px;
+    }
+
+    [data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+    [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
+    .design-nav-buttons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .design-nav button {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-size: 13px;
+      font-family: inherit;
+      transition: all 0.2s;
+      border-radius: 4px;
+    }
+
+    [data-theme="light"] .design-nav button {
+      border-color: rgba(0, 0, 0, 0.2);
+      color: #333;
+    }
+
+    .design-nav button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    [data-theme="light"] .design-nav button:hover {
+      background: rgba(0, 0, 0, 0.05);
+      border-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .design-nav button.active {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+    }
+
+    [data-theme="light"] .design-nav button.active {
+      background: #000;
+      color: #fff;
+      border-color: #000;
+    }
+
+    .design-section {
+      display: none;
+      min-height: 100vh;
+      padding-top: 110px;
+    }
+
+    .design-section.active {
+      display: block;
+    }
+
+    .design-label {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      padding: 12px 20px;
+      font-size: 12px;
+      z-index: 999;
+      border-radius: 4px;
+      max-width: 320px;
+      transition: background 0.3s;
+    }
+
+    [data-theme="light"] .design-label {
+      background: rgba(255, 255, 255, 0.95);
+      color: #000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .design-label strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    /* ========================================
+       DESIGN 1: MINIMALIST DARK
+       Linear-inspired, clean tech aesthetic
+       ======================================== */
+    #design1 {
+      --bg: #000;
+      --bg-secondary: transparent;
+      --text: #e5e5e5;
+      --text-muted: #666;
+      --text-secondary: #888;
+      --accent: #5f6bff;
+      --border: rgba(255, 255, 255, 0.06);
+    }
+
+    [data-theme="light"] #design1 {
+      --bg: #fff;
+      --bg-secondary: transparent;
+      --text: #1a1a1a;
+      --text-muted: #999;
+      --text-secondary: #666;
+      --accent: #4a55e8;
+      --border: rgba(0, 0, 0, 0.08);
+    }
+
+    #design1 {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+    }
+
+    #design1 .blog-container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    #design1 .blog-header {
+      margin-bottom: 80px;
+    }
+
+    #design1 .blog-header h1 {
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    #design1 .blog-header p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    #design1 .blog-nav {
+      display: flex;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    #design1 .blog-nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    #design1 .blog-nav a:hover {
+      color: var(--text);
+    }
+
+    #design1 .post-list .sample-post {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    #design1 .post-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    #design1 .post-title {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.4;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+
+    #design1 .post-title a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    #design1 .post-title a:hover {
+      color: var(--accent);
+    }
+
+    #design1 .post-excerpt {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    #design1 .read-more {
+      display: inline-block;
+      margin-top: 16px;
+      color: var(--accent);
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    #design1 .read-more:hover {
+      text-decoration: underline;
+    }
+
+    /* ========================================
+       DESIGN 2: EARTHY MONOCHROMATIC
+       Nature-inspired forest greens
+       ======================================== */
+    #design2 {
+      --bg: #1a2f23;
+      --text: #d4e5db;
+      --text-muted: #6b8f7a;
+      --text-secondary: #a3c2b0;
+      --accent: #7dcea0;
+      --border: rgba(212, 229, 219, 0.15);
+    }
+
+    [data-theme="light"] #design2 {
+      --bg: #f4f9f6;
+      --text: #1a2f23;
+      --text-muted: #5a7d68;
+      --text-secondary: #3d5a4a;
+      --accent: #2d7a50;
+      --border: rgba(26, 47, 35, 0.12);
+    }
+
+    #design2 {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Libre Baskerville', Georgia, serif;
+    }
+
+    #design2 .blog-container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    #design2 .blog-header {
+      text-align: center;
+      margin-bottom: 80px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    #design2 .blog-header h1 {
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    #design2 .blog-header p {
+      color: var(--text-muted);
+      font-size: 16px;
+      font-style: italic;
+    }
+
+    #design2 .sample-post {
+      margin-bottom: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    #design2 .post-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
+    }
+
+    #design2 .post-title {
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+
+    #design2 .post-title a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    #design2 .post-title a:hover {
+      color: var(--accent);
+    }
+
+    #design2 .post-excerpt {
+      color: var(--text-secondary);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    #design2 .read-more {
+      display: inline-block;
+      margin-top: 24px;
+      color: var(--accent);
+      font-size: 14px;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    #design2 .read-more:hover {
+      text-decoration: underline;
+    }
+
+    /* ========================================
+       DESIGN 3: MOCHA & NEON
+       Warm neutrals with electric accents
+       ======================================== */
+    #design3 {
+      --bg: #2a2520;
+      --bg-secondary: #332e28;
+      --bg-hover: #3d3630;
+      --text: #e8ddd4;
+      --text-muted: #806040;
+      --text-secondary: #a09080;
+      --accent: #00ff88;
+      --border: #3d3630;
+    }
+
+    [data-theme="light"] #design3 {
+      --bg: #faf8f5;
+      --bg-secondary: #f0ebe4;
+      --bg-hover: #e8e2d9;
+      --text: #2a2520;
+      --text-muted: #a08060;
+      --text-secondary: #6b5c4d;
+      --accent: #00b85c;
+      --border: #e0d8cc;
+    }
+
+    #design3 {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    #design3 .blog-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    #design3 .blog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+      padding-bottom: 24px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    #design3 .blog-header h1 {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    #design3 .blog-nav {
+      display: flex;
+      gap: 32px;
+    }
+
+    #design3 .blog-nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    #design3 .blog-nav a:hover {
+      color: var(--accent);
+    }
+
+    #design3 .featured-post {
+      background: var(--bg-secondary);
+      padding: 48px;
+      margin-bottom: 48px;
+      border-left: 4px solid var(--accent);
+    }
+
+    #design3 .featured-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    #design3 .featured-post .post-title {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    #design3 .featured-post .post-title a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    #design3 .featured-post .post-title a:hover {
+      color: var(--accent);
+    }
+
+    #design3 .featured-post .post-excerpt {
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    #design3 .post-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    #design3 .sample-post {
+      padding: 24px;
+      background: var(--bg-secondary);
+      transition: background 0.2s;
+    }
+
+    #design3 .sample-post:hover {
+      background: var(--bg-hover);
+    }
+
+    #design3 .post-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    #design3 .post-title {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    #design3 .post-title a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    #design3 .post-title a:hover {
+      color: var(--accent);
+    }
+
+    #design3 .post-excerpt {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       DESIGN 4: SINGLE-COLUMN STORY FLOW
+       Mobile-first long-form narrative
+       ======================================== */
+    #design4 {
+      --bg: #1a1a1a;
+      --text: #e8e8e8;
+      --text-muted: #777;
+      --text-secondary: #aaa;
+      --accent: #fff;
+      --border: #333;
+    }
+
+    [data-theme="light"] #design4 {
+      --bg: #fafafa;
+      --text: #333;
+      --text-muted: #999;
+      --text-secondary: #555;
+      --accent: #111;
+      --border: #ddd;
+    }
+
+    #design4 {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Libre Baskerville', Georgia, serif;
+    }
+
+    #design4 .blog-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    #design4 .blog-header {
+      margin-bottom: 60px;
+      padding-left: 20px;
+      border-left: 3px solid var(--accent);
+    }
+
+    #design4 .blog-header h1 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    #design4 .blog-header p {
+      color: var(--text-muted);
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    #design4 .sample-post {
+      margin-bottom: 60px;
+    }
+
+    #design4 .post-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    #design4 .post-title {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 20px;
+    }
+
+    #design4 .post-title a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    #design4 .post-title a:hover {
+      text-decoration: underline;
+    }
+
+    #design4 .post-excerpt {
+      font-size: 17px;
+      line-height: 1.9;
+      color: var(--text-secondary);
+    }
+
+    #design4 .post-excerpt::first-letter {
+      font-size: 56px;
+      float: left;
+      line-height: 1;
+      margin-right: 12px;
+      margin-top: 4px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    #design4 .read-more {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--text);
+      font-size: 14px;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+    }
+
+    #design4 .read-more::after {
+      content: ' \2192';
+    }
+
+    #design4 .read-more:hover {
+      text-decoration: underline;
+    }
+
+    /* ========================================
+       DESIGN 5: TERMINAL / HACKER
+       Monospace everything, coding vibe
+       ======================================== */
+    #design5 {
+      --bg: #0c0c0c;
+      --bg-secondary: #111;
+      --text: #33ff33;
+      --text-muted: #666;
+      --text-secondary: #88cc88;
+      --accent: #ffff33;
+      --border: #1a3a1a;
+    }
+
+    [data-theme="light"] #design5 {
+      --bg: #f5f5f0;
+      --bg-secondary: #eeeee8;
+      --text: #1a5f1a;
+      --text-muted: #888;
+      --text-secondary: #2d7a2d;
+      --accent: #b38f00;
+      --border: #ccd9cc;
+    }
+
+    #design5 {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    #design5 .blog-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    #design5 .blog-header {
+      margin-bottom: 60px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    #design5 .blog-header::before {
+      content: '$ cat blog.txt';
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    #design5 .blog-header h1 {
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    #design5 .blog-header h1::before {
+      content: '# ';
+      color: var(--text-muted);
+    }
+
+    #design5 .blog-header p {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    #design5 .blog-header p::before {
+      content: '> ';
+      color: var(--text-muted);
+    }
+
+    #design5 .sample-post {
+      margin-bottom: 40px;
+      padding: 24px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+    }
+
+    #design5 .sample-post::before {
+      content: '---';
+      display: block;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    #design5 .post-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    #design5 .post-meta::before {
+      content: 'date: ';
+      color: var(--text-secondary);
+    }
+
+    #design5 .post-title {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    #design5 .post-title::before {
+      content: 'title: ';
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    #design5 .post-title a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    #design5 .post-title a:hover {
+      text-decoration: underline;
+    }
+
+    #design5 .post-excerpt {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    #design5 .read-more {
+      display: inline-block;
+      margin-top: 16px;
+      color: var(--accent);
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    #design5 .read-more::before {
+      content: '[ ';
+    }
+
+    #design5 .read-more::after {
+      content: ' ]';
+    }
+
+    #design5 .read-more:hover {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    /* ========================================
+       RESPONSIVE ADJUSTMENTS
+       ======================================== */
+    @media (max-width: 768px) {
+      .nav-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .design-nav-buttons {
+        gap: 6px;
+      }
+
+      .design-nav button {
+        padding: 6px 10px;
+        font-size: 11px;
+      }
+
+      .design-section {
+        padding-top: 150px;
+      }
+
+      #design3 .post-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #design3 .blog-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      #design3 .featured-post {
+        padding: 24px;
+      }
+
+      #design3 .featured-post .post-title {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="design-nav">
+    <div class="nav-header">
+      <h1>Blog Redesign Finalists</h1>
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+        <span class="theme-label">Toggle Theme</span>
+      </button>
+    </div>
+    <div class="design-nav-buttons">
+      <button onclick="showDesign(1)" class="active">1. Minimalist</button>
+      <button onclick="showDesign(2)">2. Earthy Mono</button>
+      <button onclick="showDesign(3)">3. Mocha Neon</button>
+      <button onclick="showDesign(4)">4. Story Flow</button>
+      <button onclick="showDesign(5)">5. Terminal</button>
+    </div>
+  </nav>
+
+  <!-- DESIGN 1: Minimalist -->
+  <section id="design1" class="design-section active">
+    <div class="blog-container">
+      <header class="blog-header">
+        <h1>Clifford Ressel</h1>
+        <p>Software engineering, functional programming, and more</p>
+        <nav class="blog-nav">
+          <a href="#">Blog</a>
+          <a href="#">About</a>
+          <a href="#">GitHub</a>
+        </nav>
+      </header>
+      <div class="post-list">
+        <article class="sample-post">
+          <div class="post-meta">2025-10-26</div>
+          <h2 class="post-title"><a href="#">"Agent" is a Terribly Non-Specific Term</a></h2>
+          <p class="post-excerpt">While there's still a chance to throw more terminology at the wall, I think we could do better. I think that there are more specific names we have yet to hit on, for this year's applications of generative AI.</p>
+          <a href="#" class="read-more">Read more</a>
+        </article>
+        <article class="sample-post">
+          <div class="post-meta">2025-08-12</div>
+          <h2 class="post-title"><a href="#">E-Ink Tablet Adventures, Part 1</a></h2>
+          <p class="post-excerpt">Exploring the world of e-ink tablets and their potential for distraction-free writing and reading. A deep dive into the hardware and software landscape.</p>
+          <a href="#" class="read-more">Read more</a>
+        </article>
+        <article class="sample-post">
+          <div class="post-meta">2025-07-29</div>
+          <h2 class="post-title"><a href="#">RPS Consequentialism</a></h2>
+          <p class="post-excerpt">An exploration of game theory and decision-making frameworks through the lens of rock-paper-scissors.</p>
+          <a href="#" class="read-more">Read more</a>
+        </article>
+      </div>
+    </div>
+    <div class="design-label">
+      <strong>1. Minimalist</strong>
+      Linear-inspired clean tech aesthetic. Monospace dates, subtle accent colors, generous whitespace.
+    </div>
+  </section>
+
+  <!-- DESIGN 2: Earthy Monochromatic -->
+  <section id="design2" class="design-section">
+    <div class="blog-container">
+      <header class="blog-header">
+        <h1>Clifford Ressel</h1>
+        <p>Reflections on software, systems, and the craft of programming</p>
+      </header>
+      <article class="sample-post">
+        <div class="post-meta">October 26, 2025</div>
+        <h2 class="post-title"><a href="#">"Agent" is a Terribly Non-Specific Term</a></h2>
+        <p class="post-excerpt">While there's still a chance to throw more terminology at the wall, I think we could do better. I think that there are more specific names we have yet to hit on, for this year's applications of generative AI. Not only are more specific names possible, they are very useful when communicating between engineers.</p>
+        <a href="#" class="read-more">Continue Reading</a>
+      </article>
+      <article class="sample-post">
+        <div class="post-meta">August 12, 2025</div>
+        <h2 class="post-title"><a href="#">E-Ink Tablet Adventures, Part 1</a></h2>
+        <p class="post-excerpt">Exploring the world of e-ink tablets and their potential for distraction-free writing and reading. A deep dive into the hardware and software landscape of these fascinating devices.</p>
+        <a href="#" class="read-more">Continue Reading</a>
+      </article>
+      <article class="sample-post">
+        <div class="post-meta">July 29, 2025</div>
+        <h2 class="post-title"><a href="#">RPS Consequentialism</a></h2>
+        <p class="post-excerpt">An exploration of game theory and decision-making frameworks through the lens of rock-paper-scissors. What can this simple game teach us about strategy?</p>
+        <a href="#" class="read-more">Continue Reading</a>
+      </article>
+    </div>
+    <div class="design-label">
+      <strong>2. Earthy Monochromatic</strong>
+      Nature-inspired green palette. Serif typography for elegance, calming focused reading environment.
+    </div>
+  </section>
+
+  <!-- DESIGN 3: Mocha & Neon -->
+  <section id="design3" class="design-section">
+    <div class="blog-container">
+      <header class="blog-header">
+        <h1>Clifford Ressel</h1>
+        <nav class="blog-nav">
+          <a href="#">Blog</a>
+          <a href="#">About</a>
+          <a href="#">GitHub</a>
+          <a href="#">Contact</a>
+        </nav>
+      </header>
+      <article class="featured-post">
+        <div class="featured-label">Featured</div>
+        <h2 class="post-title"><a href="#">"Agent" is a Terribly Non-Specific Term</a></h2>
+        <p class="post-excerpt">While there's still a chance to throw more terminology at the wall, I think we could do better. I think that there are more specific names we have yet to hit on, for this year's applications of generative AI.</p>
+      </article>
+      <div class="post-grid">
+        <article class="sample-post">
+          <div class="post-meta">2025-08-12</div>
+          <h2 class="post-title"><a href="#">E-Ink Tablet Adventures, Part 1</a></h2>
+          <p class="post-excerpt">Exploring the world of e-ink tablets and their potential for distraction-free writing.</p>
+        </article>
+        <article class="sample-post">
+          <div class="post-meta">2025-07-29</div>
+          <h2 class="post-title"><a href="#">RPS Consequentialism</a></h2>
+          <p class="post-excerpt">An exploration of game theory through the lens of rock-paper-scissors.</p>
+        </article>
+        <article class="sample-post">
+          <div class="post-meta">2025-07-11</div>
+          <h2 class="post-title"><a href="#">Generators In Depth, Part 2</a></h2>
+          <p class="post-excerpt">Continuing our deep dive into generators and iterators.</p>
+        </article>
+        <article class="sample-post">
+          <div class="post-meta">2023-12-30</div>
+          <h2 class="post-title"><a href="#">Generators In Depth, Part 1</a></h2>
+          <p class="post-excerpt">Understanding the fundamentals of generators in JavaScript.</p>
+        </article>
+      </div>
+    </div>
+    <div class="design-label">
+      <strong>3. Mocha & Neon</strong>
+      Warm neutrals with electric green accents. Featured post highlight, 2-column grid for secondary posts.
+    </div>
+  </section>
+
+  <!-- DESIGN 4: Story Flow -->
+  <section id="design4" class="design-section">
+    <div class="blog-container">
+      <header class="blog-header">
+        <h1>Clifford Ressel</h1>
+        <p>Essays on code, craft, and curiosity</p>
+      </header>
+      <article class="sample-post">
+        <div class="post-meta">October 26, 2025</div>
+        <h2 class="post-title"><a href="#">"Agent" is a Terribly Non-Specific Term</a></h2>
+        <p class="post-excerpt">While there's still a chance to throw more terminology at the wall, I think we could do better. I think that there are more specific names we have yet to hit on, for this year's applications of generative AI. Not only are more specific names possible, they are very useful when communicating between engineers, or coming up with useful specifications for projects.</p>
+        <a href="#" class="read-more">Continue reading</a>
+      </article>
+      <article class="sample-post">
+        <div class="post-meta">August 12, 2025</div>
+        <h2 class="post-title"><a href="#">E-Ink Tablet Adventures, Part 1</a></h2>
+        <p class="post-excerpt">Exploring the world of e-ink tablets and their potential for distraction-free writing and reading. A deep dive into the hardware and software landscape of these fascinating devices that promise to change how we interact with text.</p>
+        <a href="#" class="read-more">Continue reading</a>
+      </article>
+      <article class="sample-post">
+        <div class="post-meta">July 29, 2025</div>
+        <h2 class="post-title"><a href="#">RPS Consequentialism</a></h2>
+        <p class="post-excerpt">An exploration of game theory and decision-making frameworks through the lens of rock-paper-scissors. What can this simple game teach us about strategy, prediction, and the nature of choice itself?</p>
+        <a href="#" class="read-more">Continue reading</a>
+      </article>
+    </div>
+    <div class="design-label">
+      <strong>4. Story Flow</strong>
+      Mobile-first, long-form optimized. Drop caps, generous line height, serif for readability. Narrow max-width.
+    </div>
+  </section>
+
+  <!-- DESIGN 5: Terminal -->
+  <section id="design5" class="design-section">
+    <div class="blog-container">
+      <header class="blog-header">
+        <h1>clifford_ressel</h1>
+        <p>writing about software, systems, and the occasional hot take</p>
+      </header>
+      <article class="sample-post">
+        <div class="post-meta">2025-10-26</div>
+        <h2 class="post-title"><a href="#">"Agent" is a Terribly Non-Specific Term</a></h2>
+        <p class="post-excerpt">While there's still a chance to throw more terminology at the wall, I think we could do better. I think that there are more specific names we have yet to hit on, for this year's applications of generative AI.</p>
+        <a href="#" class="read-more">read_more</a>
+      </article>
+      <article class="sample-post">
+        <div class="post-meta">2025-08-12</div>
+        <h2 class="post-title"><a href="#">E-Ink Tablet Adventures, Part 1</a></h2>
+        <p class="post-excerpt">Exploring the world of e-ink tablets and their potential for distraction-free writing and reading. A deep dive into the hardware and software landscape.</p>
+        <a href="#" class="read-more">read_more</a>
+      </article>
+      <article class="sample-post">
+        <div class="post-meta">2025-07-29</div>
+        <h2 class="post-title"><a href="#">RPS Consequentialism</a></h2>
+        <p class="post-excerpt">An exploration of game theory and decision-making frameworks through the lens of rock-paper-scissors.</p>
+        <a href="#" class="read-more">read_more</a>
+      </article>
+    </div>
+    <div class="design-label">
+      <strong>5. Terminal</strong>
+      Monospace everything, green-on-black. YAML-like metadata, command-line aesthetic for tech credibility.
+    </div>
+  </section>
+
+  <script>
+    function showDesign(num) {
+      document.querySelectorAll('.design-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.querySelectorAll('.design-nav-buttons button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById('design' + num).classList.add('active');
+      document.querySelectorAll('.design-nav-buttons button')[num - 1].classList.add('active');
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+
+    // Load saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      const current = document.querySelector('.design-section.active');
+      const num = parseInt(current.id.replace('design', ''));
+
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        showDesign(num < 5 ? num + 1 : 1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        showDesign(num > 1 ? num - 1 : 5);
+      } else if (e.key === 't' || e.key === 'T') {
+        toggleTheme();
+      }
+    });
+  </script>
+</body>
+</html>

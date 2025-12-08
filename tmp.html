@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Font Comparison: Google Fonts vs System Stack</title>
+  <!-- Google Fonts - only load for left side -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: system-ui, sans-serif;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .page-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .page-header h1 {
+      font-size: 14px;
+      font-weight: 500;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .theme-toggle {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      font-family: inherit;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    [data-theme="light"] .page-header {
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom-color: rgba(0, 0, 0, 0.1);
+    }
+
+    [data-theme="light"] .page-header h1 {
+      color: #666;
+    }
+
+    [data-theme="light"] .theme-toggle {
+      background: rgba(0, 0, 0, 0.05);
+      border-color: rgba(0, 0, 0, 0.2);
+      color: #333;
+    }
+
+    /* Comparison container */
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding-top: 60px;
+      min-height: 100vh;
+    }
+
+    .panel {
+      padding: 40px 32px 60px;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .panel:last-child {
+      border-right: none;
+    }
+
+    [data-theme="light"] .panel {
+      border-right-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .panel-label {
+      position: sticky;
+      top: 60px;
+      background: #1a1a1a;
+      padding: 12px 16px;
+      margin: -40px -32px 32px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 10;
+    }
+
+    [data-theme="light"] .panel-label {
+      background: #f5f5f5;
+      border-bottom-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .panel-label h2 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 4px;
+      color: #888;
+      font-weight: 500;
+    }
+
+    .panel-label .stats {
+      font-size: 11px;
+      color: #666;
+      font-family: ui-monospace, monospace;
+    }
+
+    .panel-label .stats .size {
+      color: #ff6b6b;
+    }
+
+    .panel-label .stats .zero {
+      color: #51cf66;
+    }
+
+    /* Google Fonts panel */
+    .google-fonts {
+      --bg: #1a1a1a;
+      --text: #e8e8e8;
+      --text-muted: #777;
+      --text-secondary: #aaa;
+      --accent: #fff;
+      --font-serif: 'Libre Baskerville', Georgia, serif;
+      --font-sans: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+    }
+
+    [data-theme="light"] .google-fonts {
+      --bg: #fafafa;
+      --text: #333;
+      --text-muted: #999;
+      --text-secondary: #555;
+      --accent: #111;
+    }
+
+    /* System Fonts panel */
+    .system-fonts {
+      --bg: #1a1a1a;
+      --text: #e8e8e8;
+      --text-muted: #777;
+      --text-secondary: #aaa;
+      --accent: #fff;
+      --font-serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+    }
+
+    [data-theme="light"] .system-fonts {
+      --bg: #fafafa;
+      --text: #333;
+      --text-muted: #999;
+      --text-secondary: #555;
+      --accent: #111;
+    }
+
+    /* Blog content styles (shared structure) */
+    .blog-container {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .blog-header {
+      margin-bottom: 48px;
+      padding-left: 16px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .blog-header h1 {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .blog-header p {
+      font-family: var(--font-serif);
+      font-size: 14px;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .post {
+      margin-bottom: 48px;
+    }
+
+    .post-meta {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .post-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .post-excerpt {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--text-secondary);
+    }
+
+    .post-excerpt::first-letter {
+      font-size: 48px;
+      float: left;
+      line-height: 1;
+      margin-right: 10px;
+      margin-top: 4px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 16px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .read-more::after {
+      content: ' \2192';
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+    }
+
+    /* Specimen section */
+    .specimen {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(128, 128, 128, 0.2);
+    }
+
+    .specimen h3 {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .specimen-row {
+      margin-bottom: 20px;
+    }
+
+    .specimen-label {
+      font-family: ui-monospace, monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .specimen-serif {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .specimen-sans {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .specimen-italic {
+      font-style: italic;
+    }
+
+    .specimen-bold {
+      font-weight: 700;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      [data-theme="light"] .panel {
+        border-bottom-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1>Font Comparison: Story Flow Theme</h1>
+    <div class="controls">
+      <button class="theme-toggle" onclick="toggleTheme()">Toggle Light/Dark</button>
+    </div>
+  </header>
+
+  <div class="comparison">
+    <!-- Google Fonts Panel -->
+    <div class="panel google-fonts">
+      <div class="panel-label">
+        <h2>Google Fonts</h2>
+        <div class="stats">
+          Libre Baskerville + Inter | <span class="size">~90KB + 3 requests</span>
+        </div>
+      </div>
+
+      <div class="blog-container">
+        <header class="blog-header">
+          <h1>Clifford Ressel</h1>
+          <p>Essays on code, craft, and curiosity</p>
+        </header>
+
+        <article class="post">
+          <div class="post-meta">October 26, 2025</div>
+          <h2 class="post-title">"Agent" is a Terribly Non-Specific Term</h2>
+          <p class="post-excerpt">While there's still a chance to throw more terminology at the wall, I think we could do better. I think that there are more specific names we have yet to hit on, for this year's applications of generative AI.</p>
+          <a href="#" class="read-more">Continue reading</a>
+        </article>
+
+        <article class="post">
+          <div class="post-meta">August 12, 2025</div>
+          <h2 class="post-title">E-Ink Tablet Adventures, Part 1</h2>
+          <p class="post-excerpt">Exploring the world of e-ink tablets and their potential for distraction-free writing and reading. A deep dive into the hardware landscape.</p>
+          <a href="#" class="read-more">Continue reading</a>
+        </article>
+
+        <div class="specimen">
+          <h3>Type Specimen</h3>
+          <div class="specimen-row">
+            <div class="specimen-label">Serif Regular</div>
+            <div class="specimen-serif">The quick brown fox jumps over the lazy dog. 0123456789</div>
+          </div>
+          <div class="specimen-row">
+            <div class="specimen-label">Serif Bold</div>
+            <div class="specimen-serif specimen-bold">The quick brown fox jumps over the lazy dog. 0123456789</div>
+          </div>
+          <div class="specimen-row">
+            <div class="specimen-label">Serif Italic</div>
+            <div class="specimen-serif specimen-italic">The quick brown fox jumps over the lazy dog. 0123456789</div>
+          </div>
+          <div class="specimen-row">
+            <div class="specimen-label">Sans Regular</div>
+            <div class="specimen-sans">The quick brown fox jumps over the lazy dog. 0123456789</div>
+          </div>
+          <div class="specimen-row">
+            <div class="specimen-label">Sans Medium (500)</div>
+            <div class="specimen-sans" style="font-weight: 500;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- System Fonts Panel -->
+    <div class="panel system-fonts">
+      <div class="panel-label">
+        <h2>System Font Stack</h2>
+        <div class="stats">
+          Charter/Georgia + System UI | <span class="zero">0KB + 0 requests</span>
+        </div>
+      </div>
+
+      <div class="blog-container">
+        <header class="blog-header">
+          <h1>Clifford Ressel</h1>
+          <p>Essays on code, craft, and curiosity</p>
+        </header>
+
+        <article class="post">
+          <div class="post-meta">October 26, 2025</div>
+          <h2 class="post-title">"Agent" is a Terribly Non-Specific Term</h2>
+          <p class="post-excerpt">While there's still a chance to throw more terminology at the wall, I think we could do better. I think that there are more specific names we have yet to hit on, for this year's applications of generative AI.</p>
+          <a href="#" class="read-more">Continue reading</a>
+        </article>
+
+        <article class="post">
+          <div class="post-meta">August 12, 2025</div>
+          <h2 class="post-title">E-Ink Tablet Adventures, Part 1</h2>
+          <p class="post-excerpt">Exploring the world of e-ink tablets and their potential for distraction-free writing and reading. A deep dive into the hardware landscape.</p>
+          <a href="#" class="read-more">Continue reading</a>
+        </article>
+
+        <div class="specimen">
+          <h3>Type Specimen</h3>
+          <div class="specimen-row">
+            <div class="specimen-label">Serif Regular (Charter/Georgia)</div>
+            <div class="specimen-serif">The quick brown fox jumps over the lazy dog. 0123456789</div>
+          </div>
+          <div class="specimen-row">
+            <div class="specimen-label">Serif Bold</div>
+            <div class="specimen-serif specimen-bold">The quick brown fox jumps over the lazy dog. 0123456789</div>
+          </div>
+          <div class="specimen-row">
+            <div class="specimen-label">Serif Italic</div>
+            <div class="specimen-serif specimen-italic">The quick brown fox jumps over the lazy dog. 0123456789</div>
+          </div>
+          <div class="specimen-row">
+            <div class="specimen-label">Sans Regular (System UI)</div>
+            <div class="specimen-sans">The quick brown fox jumps over the lazy dog. 0123456789</div>
+          </div>
+          <div class="specimen-row">
+            <div class="specimen-label">Sans Medium</div>
+            <div class="specimen-sans" style="font-weight: 500;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+
+    // Keyboard shortcut
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 't' || e.key === 'T') {
+        toggleTheme();
+      }
+    });
+  </script>
+</body>
+</html>
