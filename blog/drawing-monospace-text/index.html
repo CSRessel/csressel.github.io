@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap"><link rel="stylesheet" href="/assets/css/styles.d206bdba.css">
-<script src="/assets/js/runtime~main.1cddeddd.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.fa09617e.js" defer="defer"></script>
 <script src="/assets/js/main.3cc6c264.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -70,14 +70,17 @@ The full count of tokens would be more like 1MB of text, but the majority of tha
 However, not shown in the raw 53KB of text are the escape codes for colors, bold or dim, and ANSI codes for movement and clearing and printing; altogether this could conceivably double or triple the size in raw bytes.<sup><a href="#user-content-fn-2-41295c" id="user-content-fnref-2-41295c" data-footnote-ref="true" aria-describedby="footnote-label">2</a></sup>
 So we&#x27;re looking at something in the low hundreds of KB across the pty connection, for the size of each frame of full history render.
 Assuming a 60 FPS experience, we&#x27;re looking at ~10MB per second (for example, when an active and updating history cell is just off screen)</p>
-<p>So how close is this ask on paper to the theoretical max throughput of the emulator?
+<p>So how close on paper is this goal to the theoretical max throughput of the emulator?
 Using the <a href="https://github.com/cmuratori/termbench" target="_blank" rel="noopener noreferrer">cmuratori/termbench</a> repo, I can compare a few terminals&#x27; max throughput on colored text (see Appendix: Emulator Throughput).
-To summarize the results below, the several GPU-accelerated terminal emulators on my laptop show throughput around ~50MB/s.
-Non-GPU-accelerated terminals (that instead allow synchronous frame drops) show the same throughput.
-The similarity between the two is unsurprising, as the bottleneck comes not from the rasterization, but from the singly threaded CPU-bound logic to track the state machine of ANSI codes.
-Finally, on a raw kernel TTY (ttyN) without graphical emulation, using minimal device drivers, no GPU acceleration, and no logic for synchronous frame drops, we see the legacy graphics bottleneck: just over 100KB/s.
-Not per frame, per <em>second</em>.
-The built-in terminal versus GPU accelerated terminal on my Mac Mini shows another, smaller performance gap: 30MB/s versus 65MB/s.</p>
+To summarize the results from below, emulators show result between 30-100MB/s.
+The GPU-accelerated terminal emulators on my laptop are right around the median of ~50-60MB/s.
+Non-GPU-accelerated terminals (that instead allow synchronous frame drops) show similar throughput.
+The similarity is unsurprising; the bottleneck doesn&#x27;t come from the rasterization but from the singly threaded CPU-bound logic to track the state machine of ANSI codes.
+The range is more owed to hardware than it is to emulator, for the Linux ecosystem.
+The built-in terminal versus GPU accelerated terminal on my Mac Mini shows another performance gap: 30MB/s versus 65MB/s.
+I don&#x27;t have the appetite to benchmark Windows today, but it&#x27;s generally a cut below the other two.
+Finally, on a raw Linux kernel TTY (e.g. ttyN) without graphical emulation, using minimal device drivers, no GPU acceleration, and no logic for synchronous frame drops, we see the legacy graphics bottleneck: just over 100KB/s.
+Not per frame, per <em>second</em>.</p>
 <p>So the napkin math puts us in 10-50MB/s territory for most scenarios: this doesn&#x27;t <em>fully</em> preclude the possibility of a full history rerender for newer setups, but it&#x27;s not looking good!
 These benchmarks show a theoretical maximum that is within the same order of magnitude as the required throughput.
 This evidence does guarnatee the full history rerender will be painful on some legacy terminal emulators or very old hardware, and it will likely introduce frame drops and brief flickers on all but the most optimized setups.
