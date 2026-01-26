@@ -20,7 +20,7 @@ owner of the most sophisticated AI coding tools,
 and the undisputed king of agents for 2025 —
 struggle so much with rendering monospace text?</p>
 <p>From paper teletypewriters to modern digital emulators, terminal interfaces have always printed out a simple monospace text grid.
-This avoids some of the toughest problems in text rendering: the styling is heavily constrained, you often have a single font, one or two colors per grid cell, and the layout and shaping is relatively trivial.<sup><a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fn-0-41295c" id="user-content-fnref-0-41295c" data-footnote-ref="true" aria-describedby="footnote-label">1</a></sup>
+This avoids some of the toughest problems in text rendering: the styling is heavily constrained, you often have a single font, one or two colors per grid cell, and the layout and shaping is relatively trivial.<sup><a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fn-1-41295c" id="user-content-fnref-1-41295c" data-footnote-ref="true" aria-describedby="footnote-label">1</a></sup>
 In the words of Casey Muratori:</p>
 <blockquote>
 <p>Drawing a monospace terminal display is straightforward....<br><br>
@@ -53,7 +53,7 @@ Instead of coming in with another dunk (React? hahaha amirite), let's see what t
 <p>Any terminal interface is fundamentally limited by two things.
 To understand this, it's important to consider the basic pseudoterminal (pty) architecture.
 A program called a "virtual terminal emulator" like iTerm2, Ghostty, VSCode integrated terminal, etc, is used to run or view any terminal process like Claude Code, NetHack, <code>cat /dev/urandom</code>, etc.
-To connect these two, the OS opens up a bidirectional communication channel with a "master" end (the terminal app, what I'll call the emulator) and the "slave" end (the foreground process group, what I'll call the process).<sup><a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fn-1-41295c" id="user-content-fnref-1-41295c" data-footnote-ref="true" aria-describedby="footnote-label">2</a></sup>
+To connect these two, the OS opens up a bidirectional communication channel with a "master" end (the terminal app, what I'll call the emulator) and the "slave" end (the foreground process group, what I'll call the process).<sup><a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fn-2-41295c" id="user-content-fnref-2-41295c" data-footnote-ref="true" aria-describedby="footnote-label">2</a></sup>
 Data sent from the emulator to the process appears as stdin. Conversely, the process writes to stdout and stderr, which the emulator receives and parses to update the display.
 All of these are byte streams containing a mix of Unicode, ANSI escape sequences, and newer and rarer terminal protocol escape sequences.</p>
 <p>So imagine you've built a program that will render a terminal interface.
@@ -69,7 +69,7 @@ Technically the pty communication itself also falls into the "not your program" 
 Imagine we want to rerender as many lines of history as possible: what limits should we expect the bottleneck in the emulator to impose on us?
 Looking at one of my chats, a 150,000 token chat history contains about 53KB of printed text.
 The full count of tokens would be more like 1MB of text, but the majority of that context contains the thinking tokens (not shown) and the tool calls (truncated), so the output is much smaller.
-However, not shown in the raw 53KB of text are the escape codes for colors, bold or dim, and ANSI codes for movement and clearing and printing; altogether this could conceivably double or triple the size in raw bytes.<sup><a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fn-2-41295c" id="user-content-fnref-2-41295c" data-footnote-ref="true" aria-describedby="footnote-label">3</a></sup>
+However, not shown in the raw 53KB of text are the escape codes for colors, bold or dim, and ANSI codes for movement and clearing and printing; altogether this could conceivably double or triple the size in raw bytes.<sup><a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fn-3-41295c" id="user-content-fnref-3-41295c" data-footnote-ref="true" aria-describedby="footnote-label">3</a></sup>
 So we're looking at something in the low hundreds of KB across the pty connection, for the size of each frame of full history render.
 Assuming a 60 FPS experience, we're looking at ~10MB per second (for example, when an active and updating history cell is just off screen, the frequent cause of Claude Code flicker last year).</p>
 <p>So how close is this to the theoretical max throughput of the emulator?
@@ -156,7 +156,7 @@ With a long chat history, creating or destroying thousands of node objects can e
 <li><strong>Language tradeoffs:</strong> Interpreted languages often justify the performance hit with "portability."
 But in the terminal, the "non-standard environments" (Windows, old Unix distros, Android devices, etc) are <em>exactly</em> where you need the fastest performance... because they have the slowest emulators!</li>
 </ol>
-<p>Despite the improvements to their architecture, I can't say I would lean on a GC interpreted language like JS for this type of work.<sup><a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fn-3-41295c" id="user-content-fnref-3-41295c" data-footnote-ref="true" aria-describedby="footnote-label">4</a></sup>
+<p>Despite the improvements to their architecture, I can't say I would lean on a GC interpreted language like JS for this type of work.<sup><a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fn-4-41295c" id="user-content-fnref-4-41295c" data-footnote-ref="true" aria-describedby="footnote-label">4</a></sup>
 Clearly they are thinking about some of these concerns, given the acquisition of Bun.
 And clearly they are undeterred by the risks, given... The acquisition of Bun.
 I'm impressed by the work within the Bun project to date, and it will be interesting to see what their next chapter within Anthropic looks like.
@@ -198,17 +198,17 @@ It used the <code>TermMarkV2 Tiny</code> profile (in order to complete in under 
 <!-- -->
 <section data-footnotes="true" class="footnotes"><h2 class="anchor anchorWithStickyNavbar_LWe7 sr-only" id="footnote-label">Footnotes<a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#footnote-label" class="hash-link" aria-label="Direct link to Footnotes" title="Direct link to Footnotes">​</a></h2>
 <ol>
-<li id="user-content-fn-0-41295c">
-<p>As compared to the tricky requirements handled by <a href="https://github.com/harfbuzz/harfbuzz" target="_blank" rel="noopener noreferrer">HarfBuzz</a> for most web browsers or native apps. <a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fnref-0-41295c" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
-</li>
 <li id="user-content-fn-1-41295c">
-<p>These are the historical terms used throughout the Unix documentation. I personally find these terms completely unhelpful to remember what the responsibilities here are, so for this user interface centric discussion I'm just referring to the emulator and process group respectively. <a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fnref-1-41295c" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+<p>As compared to the tricky requirements handled by <a href="https://github.com/harfbuzz/harfbuzz" target="_blank" rel="noopener noreferrer">HarfBuzz</a> for most web browsers or native apps. <a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fnref-1-41295c" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
 </li>
 <li id="user-content-fn-2-41295c">
-<p>If you think this is unlikely, see previous, re: "napkin math". <a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fnref-2-41295c" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+<p>These are the historical terms used throughout the Unix documentation. I personally find these terms completely unhelpful to remember what the responsibilities here are, so for this user interface centric discussion I'm just referring to the emulator and process group respectively. <a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fnref-2-41295c" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
 </li>
 <li id="user-content-fn-3-41295c">
-<p>When building low-level developer tools, Rust is to me is the much better fit: compile-time thread safety (something something "fearless concurrency"), zero GC, native target optimizations, and indelible boundaries around the unsafe code that necessarily arises with <code>libc</code> and <code>*nix</code> calls. <a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fnref-3-41295c" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref">↩</a></p>
+<p>If you think this is unlikely, see previous, re: "napkin math". <a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fnref-3-41295c" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-4-41295c">
+<p>When building low-level developer tools, Rust is to me the much better fit: compile-time thread safety (something something "fearless concurrency"), zero GC, native target optimizations, and indelible boundaries around the unsafe code that necessarily arises with <code>libc</code> and <code>*nix</code> calls. <a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fnref-4-41295c" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
 </section>]]></content:encoded>
