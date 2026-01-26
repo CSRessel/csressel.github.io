@@ -11,8 +11,12 @@
         <id>https://clifford.ressel.fyi/blog/drawing-monospace-text</id>
         <link href="https://clifford.ressel.fyi/blog/drawing-monospace-text"/>
         <updated>2026-01-26T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Why does Anthropic, the frontier AI lab valued at billions of dollars, releasing the most sophisticated AI coding tools, the undisputed king of agents for 2025, why do they struggle so much with rendering monospace text?]]></summary>
-        <content type="html"><![CDATA[<p>Why does Anthropic, the frontier AI lab valued at billions of dollars, releasing the most sophisticated AI coding tools, the undisputed king of agents for 2025, why do they struggle so much with rendering monospace text?</p>
+        <summary type="html"><![CDATA[Why does Anthropic &mdash;]]></summary>
+        <content type="html"><![CDATA[<p>Why does Anthropic —
+the frontier AI lab valued at billions of dollars,
+owner of the most sophisticated AI coding tools,
+and the undisputed king of agents for 2025 —
+struggle so much with rendering monospace text?</p>
 <p>From paper teletypewriters to modern digital emulators, terminal interfaces have always printed out a simple monospace text grid.
 This avoids some of the toughest problems in text rendering: the styling is heavily constrained, you often have a single font, one or two colors per grid cell, and the layout and shaping is relatively trivial.<sup><a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fn-0-41295c" id="user-content-fnref-0-41295c" data-footnote-ref="true" aria-describedby="footnote-label">1</a></sup>
 In the words of Casey Muratori:</p>
@@ -41,8 +45,8 @@ Building the React scene graph 11.0ms<br>
 Generating ANSI sequences 0.8ms<br><br></p><p>someone who is good at the computer please help me budget this. my small game engine is dying</p><p><a href="https://xcancel.com/barrowfaustus/status/2014270514550730867" target="_blank" rel="noopener noreferrer">- barrowfaustus</a></p></div></div>
 <p>But many of the responses were even ruder (because some people really get off on being smug and critical on the internet).
 I think there's slightly more to it than that, and the Claude Code team obviously had reasons to go in the direction they did.
-Let's see what there is to learn if we think about the tradeoffs and limitations that they're working with, instead of coming in with another dunk (React? hahaha amirite).
-Before we generalize to some broader comparison points (React vs Ratatui, garbage collected vs not, interpreted vs compiled), lets start off with some more specific estimates for this type of workload, and why the rebuild around diff-based rendering makes sense.</p>
+Instead of coming in with another dunk (React? hahaha amirite), let's see what there is to learn if we think about the tradeoffs and limitations that they're working with.</p>
+<p>Before generalizing to some broader comparison points like React vs Ratatui, garbage collected vs not, interpreted vs compiled, I'll begin with some concrete estimates for this type of workload, and why the rebuild around diff-based rendering makes sense.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="speed-of-light-text-in-the-terminal">Speed of light (text) in the terminal<a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#speed-of-light-text-in-the-terminal" class="hash-link" aria-label="Direct link to Speed of light (text) in the terminal" title="Direct link to Speed of light (text) in the terminal">​</a></h2>
 <p>Any terminal interface is fundamentally limited by two things.
 To understand this, it's important to consider the basic pseudoterminal (pty) architecture.
