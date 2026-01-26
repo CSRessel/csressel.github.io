@@ -2,10 +2,215 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://clifford.ressel.fyi/blog</id>
     <title>Clifford Ressel Blog</title>
-    <updated>2025-10-26T00:00:00.000Z</updated>
+    <updated>2026-01-26T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://clifford.ressel.fyi/blog"/>
     <subtitle>Clifford Ressel Blog</subtitle>
+    <entry>
+        <title type="html"><![CDATA[Is drawing a monospace terminal display straightforward?]]></title>
+        <id>https://clifford.ressel.fyi/blog/drawing-monospace-text</id>
+        <link href="https://clifford.ressel.fyi/blog/drawing-monospace-text"/>
+        <updated>2026-01-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Why does Anthropic, the frontier AI lab valued at billions of dollars, releasing the most sophisticated AI coding tools, the undisputed king of agents for 2025, why do they struggle so much with rendering monospace text?]]></summary>
+        <content type="html"><![CDATA[<p>Why does Anthropic, the frontier AI lab valued at billions of dollars, releasing the most sophisticated AI coding tools, the undisputed king of agents for 2025, why do they struggle so much with rendering monospace text?</p>
+<p>Terminal interfaces have always, going back to teletypewriters on paper, and now with digital screens using GPU-accelerated emulators, simply printed out a monospace text grid.
+This completely obviates some of the toughest problems in text rendering: the styling is heavily constrained, you often have a single font, one or two colors per grid cell, and the layout and shaping is relatively trivial.<sup><a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fn-0-41295c" id="user-content-fnref-0-41295c" data-footnote-ref="true" aria-describedby="footnote-label">1</a></sup>
+In the words of Casey Muratori:</p>
+<blockquote>
+<p>Drawing a monospace terminal display is straightforward....<br><br>
+[8 sentence pseudocode for the full rendering pipeline...]<br><br>
+...That's it, right? I mean that is the entire renderer.</p>
+</blockquote>
+<p>Given these expectations for terminals, there was consternation from devs when details surfaced on X about the Claude Code rendering architecture:</p>
+<div class="theme-admonition theme-admonition-twitter admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Most people's mental model of Claude Code is that "it's just a TUI" but it should really be closer to "a small game engine".</p><p>For each frame our pipeline constructs a scene graph with React then<br>
+-&gt; layouts elements<br>
+-&gt; rasterizes them to a 2d screen<br>
+-&gt; diffs that against the previous screen<br>
+-&gt; finally uses the diff to generate ANSI sequences to draw<br></p><p>We have a ~16ms frame budget so we have roughly ~5ms to go from the React scene graph to ANSI written.</p><p><a href="https://xcancel.com/trq212/status/2014051501786931427" target="_blank" rel="noopener noreferrer">- Thariq Shihipar</a></p></div></div>
+<p>Responses ranged widely in tone, but shared a similar message.</p>
+<div class="theme-admonition theme-admonition-twitter admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>...It's one of the worst technical things I've ever heard, posted with a straight face...</p><p><a href="https://xcancel.com/Jonathan_Blow/status/2014920254926029179" target="_blank" rel="noopener noreferrer">- Jonathan Blow</a></p></div></div>
+<div class="theme-admonition theme-admonition-twitter admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Sometimes, developers get hyper-focused on tackling the immediate technical challenges in front of them that it prevents them from reflecting on past decisions.
+It's like you take a fork in a road, and find you need to climb a mountain.
+The faster route to your destination may be to backtrack, and take a more direct route without a mountain in the way...</p><p><a href="https://xcancel.com/willmcgugan/status/2014341532338606480" target="_blank" rel="noopener noreferrer">- Will McGugan</a></p></div></div>
+<div class="theme-admonition theme-admonition-twitter admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>We apparently live in the clown universe, where a simple TUI is driven by React and takes 11ms to lay out a few boxes and monospaced text...</p><p><a href="https://xcancel.com/its_bvisness/status/2014381220214309042" target="_blank" rel="noopener noreferrer">- Ben Visness</a></p></div></div>
+<p>During the storm of criticism, there was at least a little bit of levity:</p>
+<div class="theme-admonition theme-admonition-twitter admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Layout 0.9ms<br>
+Rasterization 2.1ms<br>
+Diffing 1.2ms<br>
+Building the React scene graph 11.0ms<br>
+Generating ANSI sequences 0.8ms<br><br></p><p>someone who is good at the computer please help me budget this. my small game engine is dying</p><p><a href="https://xcancel.com/barrowfaustus/status/2014270514550730867" target="_blank" rel="noopener noreferrer">- barrowfaustus</a></p></div></div>
+<p>But many of the responses were even ruder (because some people really get off on being smug and critical on the internet).
+I think there's slightly more to it than that, and the Claude Code team obviously had reasons to go in the direction they did.
+Let's see what there is to learn if we think about the tradeoffs and limitations that they're working with, instead of coming in with another dunk (React? hahaha amirite).
+Before we generalize to some broader comparison points (React vs Ratatui, garbage collected vs not, interpreted vs compiled), lets start off with some more specific estimates for this type of workload, and why the rebuild around diff-based rendering makes sense.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="speed-of-light-text-in-the-terminal">Speed of light (text) in the terminal<a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#speed-of-light-text-in-the-terminal" class="hash-link" aria-label="Direct link to Speed of light (text) in the terminal" title="Direct link to Speed of light (text) in the terminal">​</a></h2>
+<p>Any terminal interface is fundamentally limited by two things.
+To understand this, it's important to consider the basic pseudoterminal (pty) architecture.
+A program called a "virtual terminal emulator" like iTerm2, Ghostty, VSCode integrated terminal, etc, is used to run or view any terminal process like Claude Code, NetHack, <code>cat /dev/urandom</code>, etc.
+To connect these two, the OS opens up a bidirectional communication channel with a "master" end (the terminal app, what I'll call the emulator) and the "slave" end (the foreground process group, what I'll call the process).<sup><a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fn-1-41295c" id="user-content-fnref-1-41295c" data-footnote-ref="true" aria-describedby="footnote-label">2</a></sup>
+Data sent from the emulator to the process appears as stdin. Conversely, the process writes to stdout and stderr, which the emulator receives and parses to update the display.
+All of these are byte streams containing a mix of Unicode, ANSI escape sequences, and newer and rarer terminal protocol escape sequences.</p>
+<p>So imagine you've built a program that will render a terminal interface.
+Based on the pty architecture, the two limits on the rendering speed are:</p>
+<ol>
+<li>How fast can your program process and respond to new data?
+Including <code>stdin</code> data like key presses and window resizes, or other data like reading files, network responses, and subprocess results.</li>
+<li>How fast can everything that is <em>not</em> your program, mainly the emulator on the other end, receive and render your output bytestream?
+Technically the pty communication itself also falls into the "not your program" category and also includes some work (like the line discipline or context switches), but this is nowhere close to the emulator's own bottleneck.</li>
+</ol>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Unrelated, but did you know there's an actual hard limit on how many terminal interfaces you can have open?! From the Linux pty manpage:</p><div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">$ man pty</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">...</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">The Linux kernel imposes a limit on the number of available UNIX</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">98 pseudoterminals. Up to and including Linux 2.6.3, this limit</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">is configured at kernel compilation time (CONFIG_UNIX98_PTYS),</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">and the permitted number of pseudoterminals can be up to 2048,</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">with a default setting of 256. Since Linux 2.6.4, the limit is</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">dynamically adjustable via /proc/sys/kernel/pty/max, and a</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">corresponding file, /proc/sys/kernel/pty/nr, indicates  how  many</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">pseudoterminals  are  currently  in  use.</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">...</span><br></span></code></pre></div></div></div></div>
+<p>Time for some napkin math.
+Imagine we want to rerender as many lines of history as possible: what limits should we expect the bottleneck in the emulator to impose on us?
+Looking at one of my chats, a 150,000 token chat history contains about 53KB of printed text.
+The full count of tokens would be more like 1MB of text, but the majority of that context contains the thinking tokens (not shown) and the tool calls (truncated), so the output is much smaller.
+However, not shown in the raw 53KB of text are the escape codes for colors, bold or dim, and ANSI codes for movement and clearing and printing; altogether this could conceivably double or triple the size in raw bytes.<sup><a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fn-2-41295c" id="user-content-fnref-2-41295c" data-footnote-ref="true" aria-describedby="footnote-label">3</a></sup>
+So we're looking at something in the low hundreds of KB across the pty connection, for the size of each frame of full history render.
+Assuming a 60 FPS experience, we're looking at ~10MB per second (for example, when an active and updating history cell is just off screen, the frequent cause of Claude Code flicker last year).</p>
+<p>So how close is this to the theoretical max throughput of the emulator?
+Using the <a href="https://github.com/cmuratori/termbench" target="_blank" rel="noopener noreferrer">cmuratori/termbench</a> repo, I can compare a few terminals' max throughput on colored text (see Appendix: Emulator Throughput).
+To summarize the results from below, modern emulators on modern hardware show result between 30-100MB/s, and legacy emulators are at least an order of magnitude less than that.
+The GPU-accelerated terminal emulators on my laptop are right around the median of ~50-60MB/s.
+Non-GPU-accelerated terminals (that instead allow synchronous frame drops) show similar throughput.
+The similarity is unsurprising; the bottleneck doesn't come from the rasterization but from the singly threaded CPU-bound logic to track the state machine of ANSI codes.
+The variance in my results, at least for the Linux ecosystem, correlates far more with hardware than with the emulator.
+The built-in terminal versus GPU accelerated terminal on my Mac Mini shows another performance gap: 30MB/s versus 65MB/s.
+I don't have the appetite to benchmark Windows today, but trust me when I say it's generally a cut below the Unix systems.
+Finally, on a raw Linux kernel TTY (e.g. ttyN) without graphical emulation, using minimal device drivers, no GPU acceleration, and no logic for synchronous frame drops, we see the legacy graphics bottleneck: just over 100KB/s.
+Not per frame, per <em>second</em>.</p>
+<p>So the napkin math puts us in 10-50MB/s territory for most setups, and the dreaded flicker scenario (an updating cell offscreen, and a naive history reprint) requires up to 10MB/s.
+This doesn't <em>fully</em> preclude the possibility of a full history rerender for newer setups, but it's not looking good!
+These benchmarks show a theoretical maximum that is within the same order of magnitude as the required throughput.
+This evidence does guarantee the full history rerender will be painful on some legacy terminal emulators or very old hardware, and it will likely introduce frame drops and brief flickers on all but the most optimized setups.
+The important detail here is that these limitations are <em>completely absent any implementation choices of the code itself</em>.
+This is the maximum speed of the pty architecture, for the requirements the Claude Code team is operating under.</p>
+<p>This was the most ignorant part of the critique last week, that lampooned the new architecture, or the software choices.
+I question the requirements the Claude Code team has set, but to implement those requirements they absolutely need a new architecture like they described.
+Game engine programming is often impressive because after saturating performance bottlenecks in the hardware or OS or another abstraction outside your control, you need to design a smarter approach for your workload.
+In that light, Thariq's comparison is fair.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-new-architecture">The new architecture<a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#the-new-architecture" class="hash-link" aria-label="Direct link to The new architecture" title="Direct link to The new architecture">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="a-retained-mode-renderer">A retained mode renderer<a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#a-retained-mode-renderer" class="hash-link" aria-label="Direct link to A retained mode renderer" title="Direct link to A retained mode renderer">​</a></h3>
+<p>The details of their new architecture solve this throughput issue. Rather than forcing entire documents down the pty bottleneck, the new architecture implements the terminal equivalent of a retained mode interface.
+The emulator retains the screen state between frames, and the program is expected to push down only the minimal ANSI codes to move the cursor (<code>CUP</code>) and update specific cells.
+Anyone familiar with the Ratatui library knows this pattern. The application still describes the UI every frame, but the new renderer only transmits the changes.</p>
+<p>As compared to the React virtual DOM:</p>
+<ul>
+<li><strong>On the Web:</strong> DOM updates are slow, so we use VDOM to minimize <em>browser repaints</em>.</li>
+<li><strong>In the Terminal:</strong> The byte stream is fast, but the <em>parsing</em> is the bottleneck.</li>
+</ul>
+<p>By treating the terminal as a grid of cells rather than a tree of objects, the terminal avoids any "parser jitter."
+However, implementing this inside a React-like framework means they are using a nested object tree.
+Not only is this algorithmically more distant from the text grid, it is still creating thousands (tens of thousands?) of short-lived objects per frame to represent that grid of characters.
+The new design has fixed the I/O bottleneck, but they likely increased the GC pressure, moving the accidental complexity elsewhere.</p>
+<p>This leaves us with the remaining, more permanent issue that Claude Code is now dealing with: fighting the framework.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="let-history-be-history">Let history be history<a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#let-history-be-history" class="hash-link" aria-label="Direct link to Let history be history" title="Direct link to Let history be history">​</a></h3>
+<p>Terminal emulators are optimized for two distinct scenarios.</p>
+<ol>
+<li><strong>The Scrollback</strong>: the program turns information over to the emulator to own.
+Immutable, fast, and forgotten by the program.
+The pty is explicitly optimized for direct copyover of plain Unicode data.</li>
+<li><strong>The Viewport</strong>: information fully owned by the app.
+Interactive, temporary, easily customized UI, dynamic rewraps.
+The altscreen mode offers a separate buffer, fully controlled by the foreground process (like neovim or Emacs or top).
+Limited height viewports can also be implemented below the history (like <code>fzf --inline</code>).</li>
+</ol>
+<p>Claude Code has decided to violate this contract. It decides to treat the <em>entire</em> scrollback as a reactive viewport.
+Ostensibly, there are some benefits over altscreen: native search (cmd-F or similar), native text selection, native clipboard interactions, or a longer list of multiplexer features.
+But the cost is fragility.</p>
+<p>When the context gets too long, Claude "compacts" the history.
+In doing so, it often clears the <em>entire</em> terminal scrollback, including history from before the Claude Code session!
+Similarly, "fake fullscreen" features (like ctrl+o extended output) rewrite the history instead of using altscreen, so any failure scenario risks a broken scrollback that you can't reference or copy from.
+The most convenient feature is history rewrapping on window resize, and that is gone the moment you quit Claude Code, leaving you with the static history artifact that you were briefly told not to settle for!</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="non-pessimization-of-the-requirements">Non-pessimization of the requirements<a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#non-pessimization-of-the-requirements" class="hash-link" aria-label="Direct link to Non-pessimization of the requirements" title="Direct link to Non-pessimization of the requirements">​</a></h3>
+<p>Pessimization involves crippling the performance of your program, either by assuming requirements that don't exist, or ignoring constraints that do.
+There's an attempt here to support an ambitious set of requirements, and I applaud the Claude Code team for pushing boundaries on terminal experiences.
+However, every one of the tradeoffs I just described around fragility and fighting the emulator is just not my preference as a user.
+If I want a scrollable dynamic interface, there is altscreen.
+If I want a dynamic viewport below longer history, there are normal <code>stdout</code> conventions.
+If I need the rewrapped history, I can <code>/resume</code> the conversation in a new window.
+Heck, even introducing a separate <code>/rewrap</code> command would make me happier than a system that constantly fights the terminal emulator for custody of the pixels.</p>
+<p>In their design, they've pessimized the wrong thing.
+Their initial requirements assumed that rerendering is free, and responsiveness are paramount.
+This is incorrect — the history rerenders have proved to not be free, and I only care about responsiveness in the small section at the bottom that I interact with!</p>
+<p>I've found that OpenAI struck a better balance with the Codex CLI design, using a double-buffered history for active vs completed cells.
+It brings Ratatui performance with diff-based rendering for free, has zero-overhead thread safety, and the raw speed of a non-GC compiled language.</p>
+<p>Full disclosure (full plug at the end), I've been working on a distant fork of the Codex architecture to wrap the Claude agent and other agent choices.
+It feels nice using Opus 4.5 without flicker, stuttering, artifacts, or my terminal history getting cleared!</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="some-takeaways">Some takeaways<a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#some-takeaways" class="hash-link" aria-label="Direct link to Some takeaways" title="Direct link to Some takeaways">​</a></h2>
+<p>Based on these tidbits from the Claude Code team, I imagine they now have the full diff-based TUI rendering engine built out in TypeScript.
+I don't know in which areas it's at feature parity, superiority, or inferiority with similar frameworks like Ratatui.
+But having seen the general shape and complexity of code that goes into Ratatui, it is a great milestone for the Claude Code team to deliver their own diff-based engine.
+Despite the immature reactions online, this was definitely a net positive for Claude Code, and puts them much closer to my performance expectations for a cutting-edge TUI.
+While I consider the requirements they've inflicted on themselves to be not my personal cup of tea, I appreciate them experimenting with the limitations of interactivity in the terminal.</p>
+<p>There are a few takeaways I'm left with, if I had to offer my remaining 2c (on top of the 98c above):</p>
+<ol>
+<li><strong>Why fight the framework:</strong> Every feature that modifies history risks destroying it.
+Terminal users have learned to trust their scrollback as immutable log, and I personally don't like when programs break that trust.</li>
+<li><strong>Accidental complexity moves elsewhere:</strong> I still question if rendering a text grid via an object tree (DOM/React) is appropriate for an ANSI terminal.
+With a long chat history, creating or destroying thousands of node objects can easily cause a GC pause, and a frame drop may exhibit a blank screen or partially drawn UI — more flicker!</li>
+<li><strong>Language tradeoffs:</strong> Interpreted languages often justify the performance hit with "portability."
+But in the terminal, the "non-standard environments" (Windows, old Unix distros, Android devices, etc) are <em>exactly</em> where you need the fastest performance... because they have the slowest emulators!</li>
+</ol>
+<p>Despite the improvements to their architecture, I can't say I would lean on a GC interpreted language like JS for this type of work.<sup><a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fn-3-41295c" id="user-content-fnref-3-41295c" data-footnote-ref="true" aria-describedby="footnote-label">4</a></sup>
+Clearly they are thinking about some of these concerns, given the acquisition of Bun.
+And clearly they are undeterred by the risks, given... The acquisition of Bun.
+I'm impressed by the work within the Bun project to date, and it will be interesting to see what their next chapter within Anthropic looks like.
+As it relates to Claude Code, this feels kind of like buying more RAM because your program has a memory leak.
+However, I have to imagine it's a strategic decision that goes beyond just one product team, and they see a broader need in their portfolio for performant JavaScript runtimes.</p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ps-the-nori-approach">P.S., the <strong>Nori</strong> Approach<a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#ps-the-nori-approach" class="hash-link" aria-label="Direct link to ps-the-nori-approach" title="Direct link to ps-the-nori-approach">​</a></h2>
+<p>If you're interested in these topics, or just want a terminal agent that doesn't flicker, check out the work we're doing at <a href="https://tilework.tech/" target="_blank" rel="noopener noreferrer"><strong>Tilework</strong></a>!</p>
+<p><a href="https://github.com/tilework-tech/nori-cli" target="_blank" rel="noopener noreferrer">Our <strong>Nori CLI</strong></a> is a distant fork of the Codex CLI, with support for Claude Code.
+We built this on the philosophy that tools should be fast, intuitive, and respect your terminal's native behavior.
+We're working on building the things that make us faster at building the things that make us faster, and tools like this are part of our long term vision to help developers fully own (and enjoy) their own toolbox.</p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="appendix-emulator-throughput">Appendix: Emulator Throughput<a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#appendix-emulator-throughput" class="hash-link" aria-label="Direct link to Appendix: Emulator Throughput" title="Direct link to Appendix: Emulator Throughput">​</a></h2>
+<p><a href="https://github.com/cmuratori/termbench" target="_blank" rel="noopener noreferrer">Thanks to Casey Muratori's termbench project!</a></p>
+<p>These throughputs are explicitly <em>not</em> the output rendered per second;
+they are the input "accepted" per second.
+Because of this, they provide a guaranteed max on what your terminal could render out,
+but do <em>not</em> necessarily establish a viable minimum.
+For example, COSMIC achieves the top result, but actually exhibits long stutters and freezes throughout the benchmark.</p>
+<ul>
+<li><strong>ManyLine:</strong> Throughput when printing many short lines.</li>
+<li><strong>LongLine:</strong> Throughput when printing long lines wrapping the screen.</li>
+<li><strong>FGPerChar:</strong> Throughput when changing foreground color every character.</li>
+<li><strong>FGBGPerChar:</strong> Throughput when changing foreground and background color every character.</li>
+<li><strong>TermMarkV2:</strong> A balanced benchmark simulating complex terminal usage.</li>
+</ul>
+<p>All numbers in megabytes per second.
+The laptop environment is running Pop!OS 24.04 with a Ryzen 7 6800U.
+The desktop environment is running Pop!OS 24.04 with a Ryzen 5 7600X.
+The Mac Mini environment is running macOS 26.2 with an Apple M4 CPU.</p>
+<table><thead><tr><th>Environment</th><th>Emulator</th><th>TermMarkV2</th><th>ManyLine</th><th>LongLine</th><th>FGPerChar</th><th>FGBGPerChar</th></tr></thead><tbody><tr><td>Desktop</td><td><strong>COSMIC</strong></td><td><strong>108.8</strong></td><td>81.6</td><td><strong>106.5</strong></td><td><strong>196.4</strong></td><td><strong>180.6</strong></td></tr><tr><td>Desktop</td><td><strong>Alacritty</strong></td><td>96.6</td><td><strong>82.1</strong></td><td>89.5</td><td>140.7</td><td>136.3</td></tr><tr><td>Laptop</td><td><strong>COSMIC</strong></td><td><strong>75.0</strong></td><td>53.5</td><td>77.3</td><td><strong>142.2</strong></td><td><strong>127.6</strong></td></tr><tr><td>Mac Mini</td><td><strong>Ghostty</strong></td><td><strong>65.3</strong></td><td><strong>82.0</strong></td><td><strong>92.3</strong></td><td><strong>66.9</strong></td><td><strong>34.6</strong></td></tr><tr><td>Laptop</td><td><strong>Alacritty</strong></td><td>65.2</td><td>49.8</td><td>63.7</td><td>113.5</td><td>103.1</td></tr><tr><td>Desktop</td><td><strong>GNOME</strong></td><td>64.1</td><td>40.0</td><td>102.6</td><td>87.4</td><td>87.2</td></tr><tr><td>Desktop</td><td><strong>Ghostty</strong></td><td>60.0</td><td>57.2</td><td>75.4</td><td>49.1</td><td>51.7</td></tr><tr><td>Laptop</td><td><strong>GNOME</strong></td><td>56.2</td><td>34.4</td><td><strong>101.6</strong></td><td>78.7</td><td>68.4</td></tr><tr><td>Laptop</td><td><strong>Ghostty</strong></td><td>53.7</td><td><strong>55.2</strong></td><td>77.5</td><td>35.7</td><td>40.3</td></tr><tr><td>Mac Mini</td><td><strong>Terminal.app</strong></td><td>34.7</td><td>33.1</td><td>46.6</td><td>24.3</td><td>30.2</td></tr><tr><td>Laptop</td><td><em>Virtual tty3</em>*</td><td><em>0.3</em></td><td><em>0.2</em></td><td><em>5.0</em></td><td><em>9.0</em></td><td><em>9.1</em></td></tr></tbody></table>
+<blockquote>
+<p><strong>Notes:</strong></p>
+<p>* <strong>Virtual tty3</strong>: This benchmark ran on a virtual TTY (<code>/dev/tty3</code>) without a windowing system.
+It used the <code>TermMarkV2 Tiny</code> profile (in order to complete in under 10 minutes), whereas all other emulators used <code>TermMarkV2 Normal</code>.</p>
+<p>** <strong>Highest Throughput</strong>: The highest value for each column within a specific environment is <strong>bolded</strong>.</p>
+</blockquote>
+<hr>
+<!-- -->
+<section data-footnotes="true" class="footnotes"><h2 class="anchor anchorWithStickyNavbar_LWe7 sr-only" id="footnote-label">Footnotes<a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#footnote-label" class="hash-link" aria-label="Direct link to Footnotes" title="Direct link to Footnotes">​</a></h2>
+<ol>
+<li id="user-content-fn-0-41295c">
+<p>As compared to the tricky requirements handled by <a href="https://github.com/harfbuzz/harfbuzz" target="_blank" rel="noopener noreferrer">HarfBuzz</a> for most web browsers or native apps. <a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fnref-0-41295c" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-1-41295c">
+<p>These are the historical terms used throughout the Unix documentation. I personally find these terms completely unhelpful to remember what the responsibilities here are, so for this user interface centric discussion I'm just referring to the emulator and process group respectively. <a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fnref-1-41295c" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-2-41295c">
+<p>If you think this is unlikely, see previous, re: "napkin math". <a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fnref-2-41295c" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-3-41295c">
+<p>When building low-level developer tools, Rust is to me is the much better fit: compile-time thread safety (something something "fearless concurrency"), zero GC, native target optimizations, and indelible boundaries around the unsafe code that necessarily arises with <code>libc</code> and <code>*nix</code> calls. <a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fnref-3-41295c" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>]]></content>
+        <author>
+            <name>Clifford</name>
+            <uri>https://github.com/CSRessel</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Agent is a Terribly Non-Specific Term]]></title>
         <id>https://clifford.ressel.fyi/blog/agent-is-not-specific</id>
