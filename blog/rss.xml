@@ -15,8 +15,8 @@
             <pubDate>Mon, 26 Jan 2026 00:00:00 GMT</pubDate>
             <description><![CDATA[Why does Anthropic, the frontier AI lab valued at billions of dollars, releasing the most sophisticated AI coding tools, the undisputed king of agents for 2025, why do they struggle so much with rendering monospace text?]]></description>
             <content:encoded><![CDATA[<p>Why does Anthropic, the frontier AI lab valued at billions of dollars, releasing the most sophisticated AI coding tools, the undisputed king of agents for 2025, why do they struggle so much with rendering monospace text?</p>
-<p>Terminal interfaces have always, going back to teletypewriters on paper, and now with digital screens using GPU-accelerated emulators, simply printed out a monospace text grid.
-This completely obviates some of the toughest problems in text rendering: the styling is heavily constrained, you often have a single font, one or two colors per grid cell, and the layout and shaping is relatively trivial.<sup><a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fn-0-41295c" id="user-content-fnref-0-41295c" data-footnote-ref="true" aria-describedby="footnote-label">1</a></sup>
+<p>From paper teletypewriters to modern digital emulators, terminal interfaces have always printed out a simple monospace text grid.
+This avoids some of the toughest problems in text rendering: the styling is heavily constrained, you often have a single font, one or two colors per grid cell, and the layout and shaping is relatively trivial.<sup><a href="https://clifford.ressel.fyi/blog/drawing-monospace-text#user-content-fn-0-41295c" id="user-content-fnref-0-41295c" data-footnote-ref="true" aria-describedby="footnote-label">1</a></sup>
 In the words of Casey Muratori:</p>
 <blockquote>
 <p>Drawing a monospace terminal display is straightforward....<br><br>
