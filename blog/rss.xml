@@ -4,10 +4,116 @@
         <title>Clifford Ressel Blog</title>
         <link>https://clifford.ressel.fyi/blog</link>
         <description>Clifford Ressel Blog</description>
-        <lastBuildDate>Mon, 26 Jan 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 27 Mar 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Cost to Implement vs Cost to Verify]]></title>
+            <link>https://clifford.ressel.fyi/blog/cost-to-implement-vs-verify</link>
+            <guid>https://clifford.ressel.fyi/blog/cost-to-implement-vs-verify</guid>
+            <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[The Wrong Scoreboard]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-wrong-scoreboard">The Wrong Scoreboard<a href="https://clifford.ressel.fyi/blog/cost-to-implement-vs-verify#the-wrong-scoreboard" class="hash-link" aria-label="Direct link to The Wrong Scoreboard" title="Direct link to The Wrong Scoreboard">​</a></h2>
+<p>The discourse on coding agents has been obsessing for the past year over the wrong question. The main focus has been <em>what models can do</em>: lines written, autonomous minutes, benchmark scores, model cards, percent of lines shipped by AI.
+These are all generalized measures of <strong>implementation throughput</strong>. These measures may be useful for a birdseye view of the model progress.
+However, they say almost nothing about where the actual bottlenecks now live within software development.
+The operative question for practitioners in 2025 is not what tools <em>can</em> do, it's what you <em>should ask</em> them to do.</p>
+<p>The conversation throughout 2024 and 2025 baked in an assumption of such fast capability expansion that practical limitations during adoption could be ignored.
+Many builders promised that soon all software problems would be delegated to coding models, whether through <a href="https://clifford.ressel.fyi/blog/agent-is-not-specific">RETLs</a> like Claude Code, or async agents like "Devin", or some other form factor.
+If model performance had kept scaling at 2020–2024 levels, exponentials and discontinuities and all, maybe that future could have arrived fast enough to justify the hand-waving. However, the pace of improvement on real software tasks has been significant, but more like linear and less exponential. Steady and persistent, but slow. These tools are here to stay, pervasive, and industry changing, but also detrimental in specific, predictable ways.</p>
+<p>Answering the <em>should</em> question requires a different lens than the capability benchmarks provide. Every task you might hand to a coding agent has two costs that matter: the <strong>cost to implement</strong> (C<sub>i</sub>) — the time and expertise needed to produce the code — and the <strong>cost to verify</strong> (C<sub>v</sub>) — the time and expertise needed to confirm the code is correct. The relationship between these two variables determines whether delegation is a net win or a liability.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="aside-about-delegation">Aside: About "Delegation"<a href="https://clifford.ressel.fyi/blog/cost-to-implement-vs-verify#aside-about-delegation" class="hash-link" aria-label="Direct link to Aside: About &quot;Delegation&quot;" title="Direct link to Aside: About &quot;Delegation&quot;">​</a></h2>
+<p>When I originally wrote down this exact outline in November of 2025,
+I was comparing handcoded implementation with AI delegated implementation.</p>
+<p>My agent tooling is now so sufficient that I hand write very, very little code, only popping my editor open for quick edits and occasional macros or LSP actions.
+In this world, "delegate" means something different.
+The choice is either to pair program with the agent, or to delegate and then verify.
+The pair programming model is mentally just as high touch as writing code but just mechanically faster, using many back-and-forths of socratic question asking to construct plans, or adding detailed user input at every meaningful structural choice.
+However the delegation model is different, allowing the agent to take lead in research, planning, and implementing, and only reviewing in detail the output of each of these three phases.
+This more autonomous delegation is the working model where you can run and ship five separate feature PRs in parallel — not some clickbait Xitter "I ran 100 agents in parallel today" make-work slop, but five actual product increments, in parallel, in a brownfield codebase.</p>
+<p>Some engineers are not yet at that point. That may be a function of comfortability with these tools, but is just as often a question of the work content itself — some languages and frameworks are not on-distribution for the models, and some problem domains are just very illegible to an agent.</p>
+<p>The paradigm in this essay should be just as applicable to someone choosing between yes or no for agent usage, as it is for someone choosing between collaborating with the agent more hands-on versus more autonomously.</p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-two-variable-framework">The Two-Variable Framework<a href="https://clifford.ressel.fyi/blog/cost-to-implement-vs-verify#the-two-variable-framework" class="hash-link" aria-label="Direct link to The Two-Variable Framework" title="Direct link to The Two-Variable Framework">​</a></h2>
+<svg viewBox="0 0 520 480" xmlns="http://www.w3.org/2000/svg" style="max-width:520px;width:100%"><style>
+    text { font-family: 'Libre Baskerville', 'Georgia', serif; }
+    .axis-label { font-size: 13px; fill: currentColor; }
+    .quadrant-label { font-size: 14px; fill: currentColor; }
+    .axis-title { font-size: 13px; fill: currentColor; }
+  </style><defs><marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="currentColor" opacity="0.5"></polygon></marker><pattern id="dangerHatch" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#8b3a3a" stroke-width="1.5" opacity="0.12"></line></pattern></defs><line x1="80" y1="400" x2="490" y2="400" stroke="currentColor" stroke-width="1.5" opacity="0.4" marker-end="url(#arrowhead)"></line><line x1="80" y1="400" x2="80" y2="20" stroke="currentColor" stroke-width="1.5" opacity="0.4" marker-end="url(#arrowhead)"></line><line x1="285" y1="30" x2="285" y2="395" stroke="currentColor" stroke-width="0.75" stroke-dasharray="4,4" opacity="0.2"></line><line x1="85" y1="210" x2="485" y2="210" stroke="currentColor" stroke-width="0.75" stroke-dasharray="4,4" opacity="0.2"></line><rect x="285" y="30" width="200" height="180" fill="url(#dangerHatch)"></rect><rect x="285" y="30" width="200" height="180" fill="none" stroke="#8b3a3a" stroke-width="1.5" opacity="0.3" stroke-dasharray="6,3"></rect><text x="290" y="430" text-anchor="middle" class="axis-title">Cost to Implement</text><text x="35" y="210" text-anchor="middle" class="axis-title" transform="rotate(-90, 35, 210)">Cost to Verify</text><text x="182" y="418" text-anchor="middle" class="axis-label" style="opacity:0.5;font-size:11px">low</text><text x="390" y="418" text-anchor="middle" class="axis-label" style="opacity:0.5;font-size:11px">high</text><text x="68" y="310" text-anchor="middle" class="axis-label" style="opacity:0.5;font-size:11px" transform="rotate(-90, 68, 310)">low</text><text x="68" y="120" text-anchor="middle" class="axis-label" style="opacity:0.5;font-size:11px" transform="rotate(-90, 68, 120)">high</text><text x="182" y="115" text-anchor="middle" class="quadrant-label">Build your mental model</text><text x="390" y="100" text-anchor="middle" style="font-size:18px;font-weight:bold;fill:#8b3a3a;font-family:Libre Baskerville, Georgia, serif">The Trap</text><text x="390" y="125" text-anchor="middle" class="quadrant-label" style="font-size:11px;opacity:0.6">huge incentive, blind verification</text><text x="182" y="310" text-anchor="middle" class="quadrant-label" style="opacity:0.4">Doesn't matter</text><text x="390" y="310" text-anchor="middle" class="quadrant-label">Delegate freely</text><line x1="420" y1="350" x2="180" y2="350" stroke="currentColor" stroke-width="2" opacity="0.3" marker-end="url(#arrowhead)"></line><text x="300" y="375" text-anchor="middle" style="font-size:10px;fill:currentColor;opacity:0.5;font-style:italic;font-family:Libre Baskerville, Georgia, serif">models compress Cᵢ</text></svg>
+<p>When both costs are low, it doesn't matter what approach you take — the task is trivial either way. When C<sub>i</sub> is high but C<sub>v</sub> is low, delegate freely; the implementation is a job for the agent, and you can cheaply confirm the result. The inverse is equally clear: when C<sub>i</sub> is low but C<sub>v</sub> is high, build a detailed mental model by taking part in every step of the process.</p>
+<p>The dangerous quadrant is top-right. When both costs are high, there's a huge incentive to spin the slot machine many times, and see if the agent just happens to nail the task. Compared to hand coding, where you burn days or weeks to ascertain the quality, the agent might have a chance to succeed at the same or higher quality after just 60 minutes of work. For complex or off-distribution work, it may be a small chance... but that makes it even more tempting! But by skipping that effort, you go in blind for an equally demanding task: verification. This is the trap.</p>
+<p>The models have dramatically compressed C<sub>i</sub> across the board. C<sub>v</sub> has not moved at the same rate — and in many cases, without careful developer intervention it has gotten worse.</p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="vibecoding-and-the-unaddressed-variable">Vibecoding and the Unaddressed Variable<a href="https://clifford.ressel.fyi/blog/cost-to-implement-vs-verify#vibecoding-and-the-unaddressed-variable" class="hash-link" aria-label="Direct link to Vibecoding and the Unaddressed Variable" title="Direct link to Vibecoding and the Unaddressed Variable">​</a></h2>
+<p>Vibecoding is the logical extreme of treating C<sub>i</sub> as the only variable.
+Previously, architecture decisions were bottlenecked by implementation cost. Releasing that constraint completely, without addressing verification cost, is a big failure mode. Any frequent flyer on Claude Code has experienced this, as an end user of an entirely AI-coded application — the constant issues with UI bugs, unintended changes to history cells, broken permission models...
+I've written about the <a href="https://clifford.ressel.fyi/blog/drawing-monospace-text">flickering issues</a> before, and I've been annoyed sandboxing persistently <a href="https://github.com/anthropics/claude-code/issues/16022" target="_blank" rel="noopener noreferrer">pollutes</a> <a href="https://github.com/anthropics/claude-code/issues/17727" target="_blank" rel="noopener noreferrer">the</a> <a href="https://github.com/anthropics/claude-code/issues/28189" target="_blank" rel="noopener noreferrer">workspace</a> <a href="https://github.com/anthropics/claude-code/issues/29316" target="_blank" rel="noopener noreferrer">with</a> <a href="https://github.com/anthropic-experimental/sandbox-runtime/issues/139" target="_blank" rel="noopener noreferrer">empty</a> <a href="https://github.com/anthropic-experimental/sandbox-runtime/issues/85" target="_blank" rel="noopener noreferrer">files</a> (this issue has been recurring in different forms for three months now).
+Users of the Claude Web environment, of Cursor, and many other almost fully AI-coded products experience the exact same degradation of quality as the software so rapidly grows.
+It's not just that more features lead to proportionately more bugs. When you don't build a mental model of the codebase, you've skipped your first pass on verifying the logic, and you've gone without a map of what parts need verification.
+The consequence isn't just bugs — it's <strong>verification blindness</strong>: you don't know what you don't know.</p>
+<p>This is a common failure mode that many teams have fallen into, particularly startups that feel the keenest urgency to ship faster.</p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="verification-debt">Verification Debt<a href="https://clifford.ressel.fyi/blog/cost-to-implement-vs-verify#verification-debt" class="hash-link" aria-label="Direct link to Verification Debt" title="Direct link to Verification Debt">​</a></h2>
+<p>As a result, the most common form of tech debt in these highly agentic codebases comes from growing your feature surface area too fast and too loose.
+Every agentic feature shipped without a corresponding verification investment degrades your ability to autonomously ship <em>future</em> features.
+This is a compounding liability, not a fixed cost — first it accumulates, and then because these changes can have cross cutting technical concerns, or act as bad examples for future work, it compounds.
+Unit and integration testing become slightly more important, to compensate.
+But <strong>E2E behavioral verification becomes far more important</strong>, because that's the layer the agent generally cannot self-evaluate on its own.
+Skipping this investment creates <strong>verification debt</strong>.</p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="detour-what-spec-driven-development-actually-gets-right-and-wrong">Detour: What Spec-Driven Development Actually Gets Right (and Wrong)<a href="https://clifford.ressel.fyi/blog/cost-to-implement-vs-verify#detour-what-spec-driven-development-actually-gets-right-and-wrong" class="hash-link" aria-label="Direct link to Detour: What Spec-Driven Development Actually Gets Right (and Wrong)" title="Direct link to Detour: What Spec-Driven Development Actually Gets Right (and Wrong)">​</a></h2>
+<p>The popular framing of spec-driven development is wrong on two counts. It's not about making prompt copy-paste easier, and it's not about closing the loop on "Ralph Wiggum" workflows — generate, test, regenerate. These framings chase short-term speedups that don't touch the real bottleneck.</p>
+<p>The <strong>original insight</strong> of a specification is much more important: you cannot verify an implementation if you don't know its <em>intent</em>. A specification is the textual or symbolic description by which multiple different readers arrive at the same mental model. In distributed teams, software has long relied on PR review, ADRs, box and sequence diagrams — this is fundamentally the <em>sharing of intent</em>. You must know the developer's intent before you can review their outputs. This is not new, it's just now more urgent.</p>
+<p>The genuine unlock of specs is that they <strong>literalize the behavior you need to verify</strong>. Once combined with simulation environments — headless browsers, terminal puppeteering, API smoke tests — your specs become the instructions for agentic verification <em>after</em> agentic implementation. The loop closes not at the generation layer, but at the verification layer.</p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="beware-reflexivity">Beware Reflexivity<a href="https://clifford.ressel.fyi/blog/cost-to-implement-vs-verify#beware-reflexivity" class="hash-link" aria-label="Direct link to Beware Reflexivity" title="Direct link to Beware Reflexivity">​</a></h2>
+<p>These two variables don't stay independent — they affect each other over time. Shipping too quickly <em>raises</em> C<sub>v</sub> as verification debt accumulates. Higher C<sub>v</sub> in turn <em>raises</em> future C<sub>i</sub> — the agent's implementation speedup erodes as the codebase becomes harder to reason about, harder to test against, and bad patterns get committed and cargo culted. This is the mechanism by which agentic coding gains can crash down to earth, trash a codebase, and turn a team against AI coding tools entirely.</p>
+<p>But reflexivity runs both ways. The virtuous path runs in the opposite direction: to properly ship faster, teams must <strong>aggressively use the low cost to implement new tooling as a lever to decrease the cost of verification</strong>.</p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="solutions-making-verification-tractable">Solutions: Making Verification Tractable<a href="https://clifford.ressel.fyi/blog/cost-to-implement-vs-verify#solutions-making-verification-tractable" class="hash-link" aria-label="Direct link to Solutions: Making Verification Tractable" title="Direct link to Solutions: Making Verification Tractable">​</a></h2>
+<p>Three concrete approaches, in increasing specificity:</p>
+<p><strong>1. Simulation environments at full breadth</strong>.</p>
+<ul>
+<li>Standard integration/automation/E2E testing practices are table stakes, but the agent's reach is now wider.</li>
+<li>Headless browsers, Chrome DevTools protocol, pseudo terminals, API smoke tests, microVMs, containers — the agent can drive all of these.</li>
+<li>The question is no longer <em>can we automate this</em> but <em>have we specified what to automate</em>.</li>
+</ul>
+<p><strong>2. Making the runtime legible</strong>.</p>
+<ul>
+<li>E2E tests don't capture everything: service startup timing, internal program state, functional SLAs, "no UI interaction blocks for more than 2s".</li>
+<li>An ephemeral, per-worktree observability stack — logs, metrics, traces — makes runtime behavior tractable to the agent.</li>
+<li>This is the difference between the agent knowing the tests pass and the agent understanding <em>how the system is behaving</em>.</li>
+</ul>
+<p><strong>3. Bespoke verification tooling is now nearly free</strong>.</p>
+<ul>
+<li>Personal example: while building a PTY proxy around several TUI tools, codifying system invariants and nightly fuzzing jobs cost only ~two extra hours.</li>
+<li>I implemented fuzzing with reproducible seeds and system state captures at failure.</li>
+<li>I can put my tool through more comprehensive testing than I could have ever justified without the agentic contributions.</li>
+<li>The economics of verification tooling have shifted — the agent makes it cheap to build guardrails and course correction, so the only remaining question is where those guardrails should go.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-new-discipline">The New Discipline<a href="https://clifford.ressel.fyi/blog/cost-to-implement-vs-verify#the-new-discipline" class="hash-link" aria-label="Direct link to The New Discipline" title="Direct link to The New Discipline">​</a></h2>
+<p>Coding agents haven't changed what good software engineering is, but they have changed where the <em>leverage</em> point is.
+The developers extracting the most durable value from these tools are the ones who have reinvested implementation gains into verification infrastructure.
+The question to ask before every agentic task is <em>not</em> "can the agent build this?" but "how will I verify what was built?"</p>
+<p>If you want two immediate, concrete steps to try improving your verification tools:</p>
+<ul>
+<li>After you run through a cycle of research-plan-implement, your agent must go through the implementation using TDD.
+<a href="https://noriskillsets.dev/skills/test-driven-development" target="_blank" rel="noopener noreferrer">Here's a general purpose agent skill to do so</a>.</li>
+<li>If you want an agent to go through a manual end-to-end test on your project, consider giving it the tools to interact directly.
+<a href="https://noriskillsets.dev/skills/webapp-testing" target="_blank" rel="noopener noreferrer">Here's a skill for the agent to puppet a browser with Playwright</a>. <a href="https://noriskillsets.dev/skills/tui-puppeteering-with-tmux" target="_blank" rel="noopener noreferrer">Here's a skill for the agent to puppet a TUI with tmux</a>.</li>
+</ul>
+<p>What's next for future software engineering practices with agents?
+I anticipate that this will be just the first of three big posts about the core principles in this new paradigm.
+To signpost properly where I think this is going, here are the three ideas that are changing how I see software as being developed:</p>
+<ol>
+<li><strong>Verification debt</strong>. <em>(this post)</em></li>
+<li><strong>Agent legibility</strong>.</li>
+<li><strong>Compounding correctness</strong>.</li>
+</ol>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Is drawing a monospace terminal display straightforward?]]></title>
             <link>https://clifford.ressel.fyi/blog/drawing-monospace-text</link>
