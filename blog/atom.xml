@@ -2,10 +2,56 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://clifford.ressel.fyi/blog</id>
     <title>Clifford Ressel Blog</title>
-    <updated>2026-03-27T00:00:00.000Z</updated>
+    <updated>2026-05-28T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://clifford.ressel.fyi/blog"/>
     <subtitle>Clifford Ressel Blog</subtitle>
+    <entry>
+        <title type="html"><![CDATA[Sometimes free isn't cheap enough]]></title>
+        <id>https://clifford.ressel.fyi/blog/free-isnt-cheap-enough</id>
+        <link href="https://clifford.ressel.fyi/blog/free-isnt-cheap-enough"/>
+        <updated>2026-05-28T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[For the past year the techfluencers and executives and tokenmaxxers have been telling us that code is cheap.]]></summary>
+        <content type="html"><![CDATA[<p>For the past year the techfluencers and executives and tokenmaxxers have been telling us that <strong>code is cheap</strong>.
+Lately <a href="https://youtu.be/am_oeAoUhew" target="_blank" rel="noopener noreferrer">harness engineers have upgraded the claim</a>: <strong>code is free</strong>.<sup><a href="https://clifford.ressel.fyi/blog/free-isnt-cheap-enough#user-content-fn-1-4300e2" id="user-content-fnref-1-4300e2" data-footnote-ref="true" aria-describedby="footnote-label">1</a></sup>
+Soon enough, the marginal cost of acquiring another thousand lines really will round to zero, totally untethered from the old bottlenecks of human time and human expertise.</p>
+<p>I think this misses the point. Sometimes free isn't cheap enough.</p>
+<p>Over the last century, conservation efforts for American bison in places like Montana and Nebraska worked a little <em>too</em> well.
+The buffalo came back — and then they kept coming. Herds grew to the point where they threatened serious destruction of the very ecosystems we'd set out to protect.
+So every autumn, the surplus animals had to be culled.
+From the 1960s up until around 1992 the Department of the Interior ran a surplus wildlife disposal program to try and find an outcome other than slaughter for these beautiful animals.</p>
+<p>Which leads me to ask you, the reader: how cheap would one of these buffalo have to be for you to sign up?</p>
+<p>If you answered <em>"I wouldn't, at any cost"</em> — then I hope you see my point. I bring up this specific example because for decades, these buffalo were actually available for free!<sup><a href="https://clifford.ressel.fyi/blog/free-isnt-cheap-enough#user-content-fn-2-4300e2" id="user-content-fnref-2-4300e2" data-footnote-ref="true" aria-describedby="footnote-label">2</a></sup></p>
+<p>Turns out there can be costs to a transaction other than just the acquisition cost.
+Some are financial. Some are opportunity costs. Some are just risks and inconveniences.
+A buffalo costs an enormous amount of time and money to maintain. Every hour you spend caring for it is an hour you didn't spend on the work you actually meant to do.
+And a new buffalo can expose the rest of your herd to new pathogens and disease.</p>
+<p>Those <em>other</em> costs can matter so much more than the sticker price, that the up-front number becomes basically irrelevant to the decision.
+Free was never the question.
+So if over the next couple of years the frontier labs decide to debt-finance a massive supply of buffalo and hand them out for nothing... I would not recommend rebuilding your entire way of working around buffalomaxxing.<sup><a href="https://clifford.ressel.fyi/blog/free-isnt-cheap-enough#user-content-fn-3-4300e2" id="user-content-fnref-3-4300e2" data-footnote-ref="true" aria-describedby="footnote-label">3</a></sup></p>
+<p>Because sometimes <strong>free is not cheap enough</strong>.</p>
+<!-- -->
+<section data-footnotes="true" class="footnotes"><h2 class="anchor anchorWithStickyNavbar_LWe7 sr-only" id="footnote-label">Footnotes<a href="https://clifford.ressel.fyi/blog/free-isnt-cheap-enough#footnote-label" class="hash-link" aria-label="Direct link to Footnotes" title="Direct link to Footnotes">​</a></h2>
+<ol>
+<li id="user-content-fn-1-4300e2">
+<p>No shade towards Ryan Lapopolo! I've been constantly citing his <a href="https://openai.com/index/harness-engineering/" target="_blank" rel="noopener noreferrer">post on harness engineering</a> over and over again in conversation, since it came out. Maybe the writeup of the year already, for how much it influenced my thinking <a href="https://clifford.ressel.fyi/blog/free-isnt-cheap-enough#user-content-fnref-1-4300e2" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-2-4300e2">
+<p>I first came across this historical oddity in Abbie Hoffman's indie book/manifesto, <em>Steal This Book</em> (1971). But the surplus disposal of overpopulated wildlife is real, codified federal regulation: <a href="https://www.ecfr.gov/current/title-50/chapter-I/subchapter-C/part-31/subpart-A/section-31.2" target="_blank" rel="noopener noreferrer">50 CFR § 31.2</a> <a href="https://clifford.ressel.fyi/blog/free-isnt-cheap-enough#user-content-fnref-2-4300e2" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-3-4300e2">
+<p>That is, unless your business is entirely that of acquiring buffalo! In reality, very few businesses actually exist <em>just</em> to acquire code.
+Some exist to figure out exactly what code to write. Some exist to run that code for other people. Some exist to own the liability of the code in operation.
+And I think there are very interesting ways that AI can help software businesses solve these problems better.
+Over-indexing on tokenmaxxing does not seem like the right framework to do so! <a href="https://clifford.ressel.fyi/blog/free-isnt-cheap-enough#user-content-fnref-3-4300e2" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>]]></content>
+        <author>
+            <name>Clifford</name>
+            <uri>https://github.com/CSRessel</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Cost to Implement vs Cost to Verify]]></title>
         <id>https://clifford.ressel.fyi/blog/cost-to-implement-vs-verify</id>
